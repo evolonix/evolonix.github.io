@@ -17,9 +17,8 @@ const VALUES = [
 ];
 
 const MILESTONES = [
-  { year: "2019", note: "Founded as a two-person shop in Portland." },
-  { year: "2021", note: "First open-source release; team grew to five." },
-  { year: "2023", note: "Shipped design systems for three Series-B teams." },
+  { year: "2019", note: "Founded as a one-person shop in Raleigh." },
+  { year: "2021", note: "First open-source release." },
   { year: "2025", note: "Published react-router-next; hello, you." },
 ];
 

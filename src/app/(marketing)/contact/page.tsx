@@ -58,7 +58,7 @@ export default function Contact() {
             label="Office"
             value={
               <>
-                Portland, Oregon
+                Raleigh, North Carolina
                 <br />
                 Remote-first across the Americas
               </>
