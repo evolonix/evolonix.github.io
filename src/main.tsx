@@ -11,7 +11,9 @@ import "./index.css";
       "(prefers-color-scheme: dark)",
     ).matches;
     const resolved =
-      theme === "dark" || (theme === "system" && prefersDark) ? "dark" : "light";
+      theme === "dark" || (theme === "system" && prefersDark)
+        ? "dark"
+        : "light";
     document.documentElement.classList.toggle("dark", resolved === "dark");
   } catch {
     // ignore — defaults to light

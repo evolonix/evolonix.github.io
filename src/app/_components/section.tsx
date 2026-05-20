@@ -23,7 +23,7 @@ export function Section({
       id={id}
       className={
         isBrand
-          ? "relative isolate overflow-hidden bg-linear-to-br from-brand-500 via-fuchsia-500 to-accent-500 text-white"
+          ? "from-brand-500 to-accent-500 relative isolate overflow-hidden bg-linear-to-br via-fuchsia-500 text-white"
           : "bg-transparent"
       }
     >
@@ -32,8 +32,8 @@ export function Section({
           <p
             className={
               isBrand
-                ? "mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-white/80"
-                : "mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-brand-600 dark:text-brand-300"
+                ? "mb-3 text-xs font-semibold tracking-[0.18em] text-white/80 uppercase"
+                : "text-brand-600 dark:text-brand-300 mb-3 text-xs font-semibold tracking-[0.18em] uppercase"
             }
           >
             {eyebrow}

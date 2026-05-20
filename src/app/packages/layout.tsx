@@ -12,7 +12,7 @@ export default function PackagesLayout() {
   return (
     <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 lg:grid-cols-[16rem_1fr]">
       <aside className="lg:sticky lg:top-20 lg:self-start">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-600 dark:text-brand-300">
+        <p className="text-brand-600 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
           Packages
         </p>
         <h2 className="mt-2 text-lg font-semibold text-zinc-900 dark:text-zinc-50">
@@ -21,7 +21,7 @@ export default function PackagesLayout() {
         <nav className="mt-5 space-y-1 text-sm">
           <Link
             to="/packages"
-            className="block rounded-lg px-3 py-2 text-zinc-600 hover:bg-zinc-100 hover:text-brand-600 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-brand-300"
+            className="hover:text-brand-600 dark:hover:text-brand-300 block rounded-lg px-3 py-2 text-zinc-600 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-800"
           >
             All packages
           </Link>
@@ -29,7 +29,7 @@ export default function PackagesLayout() {
             <Link
               key={pkg.href}
               to={pkg.href}
-              className="block rounded-lg px-3 py-2 font-mono text-xs text-zinc-700 hover:bg-zinc-100 hover:text-brand-600 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-brand-300"
+              className="hover:text-brand-600 dark:hover:text-brand-300 block rounded-lg px-3 py-2 font-mono text-xs text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
             >
               {pkg.name}
             </Link>

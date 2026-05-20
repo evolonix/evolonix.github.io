@@ -18,7 +18,7 @@ export function ExampleCard({ example }: { example: Example }) {
       <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
         {example.blurb}
       </p>
-      <p className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-brand-600 group-hover:gap-2 transition-all dark:text-brand-300">
+      <p className="text-brand-600 dark:text-brand-300 mt-4 inline-flex items-center gap-1 text-xs font-medium transition-all group-hover:gap-2">
         Open example
         <span aria-hidden>→</span>
       </p>
