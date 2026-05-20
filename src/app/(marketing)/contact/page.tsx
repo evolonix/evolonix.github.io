@@ -15,7 +15,7 @@ export default function Contact() {
 
       <div className="mt-12 grid gap-10 lg:grid-cols-[3fr_2fr]">
         <form
-          action="mailto:hello@evolonix.example"
+          action="mailto:hello@evolonix.com"
           method="post"
           encType="text/plain"
           className="space-y-4 rounded-2xl bg-white p-6 ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800"
@@ -51,8 +51,8 @@ export default function Contact() {
         <aside className="space-y-6 text-sm">
           <InfoBlock
             label="Email"
-            value="hello@evolonix.example"
-            href="mailto:hello@evolonix.example"
+            value="hello@evolonix.com"
+            href="mailto:hello@evolonix.com"
           />
           <InfoBlock
             label="Office"
