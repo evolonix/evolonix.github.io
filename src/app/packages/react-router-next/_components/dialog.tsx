@@ -43,7 +43,7 @@ export function Dialog({
     <dialog
       ref={dialogRef}
       aria-labelledby={titleId}
-      className="max-h-[85vh] w-full max-w-2xl overflow-auto rounded-2xl bg-white p-6 shadow-2xl ring-1 ring-zinc-200 backdrop:bg-zinc-950/70 backdrop:backdrop-blur-sm dark:bg-zinc-900 dark:ring-zinc-800"
+      className="m-auto max-h-[85vh] w-full max-w-2xl overflow-auto rounded-2xl bg-white p-6 shadow-2xl ring-1 ring-zinc-200 backdrop:bg-zinc-950/70 backdrop:backdrop-blur-sm dark:bg-zinc-900 dark:ring-zinc-800"
     >
       <div className="flex items-start justify-between gap-4">
         <h2
