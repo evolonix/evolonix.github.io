@@ -39,10 +39,7 @@ export function Header() {
           to="/"
           className="flex items-center gap-2 text-base font-semibold tracking-tight"
         >
-          <span
-            aria-hidden
-            className="inline-block h-6 w-6 rounded-md bg-linear-to-br from-brand-500 via-fuchsia-500 to-accent-500"
-          />
+          <img src="/logo.svg" alt="" aria-hidden="true" className="h-7 w-7" />
           <span>Evolonix</span>
         </Link>
 
