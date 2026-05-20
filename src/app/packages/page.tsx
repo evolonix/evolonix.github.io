@@ -4,7 +4,7 @@ const PACKAGES = [
   {
     name: "@evolonix/react-router-next",
     href: "/packages/react-router-next",
-    tagline: "Filesystem routing for React Router 7",
+    tagline: "Next.js-style filesystem routing for React Router 7",
     body: "Drop a page.tsx into a folder, get a typed route — including typed params, nested layouts, parallel routes, intercepting routes, loading and error boundaries.",
     tone: "from-brand-500 via-fuchsia-500 to-accent-500",
     install: "npm i @evolonix/react-router-next react-router",
@@ -42,7 +42,7 @@ export default function PackagesIndex() {
               <p className="mt-3 max-w-2xl text-sm text-zinc-600 dark:text-zinc-400">
                 {pkg.body}
               </p>
-              <pre className="mt-5 inline-block rounded-lg bg-zinc-950 px-4 py-2 font-mono text-xs text-zinc-100 ring-1 ring-zinc-800">
+              <pre className="mt-5 w-fit max-w-full overflow-x-auto rounded-lg bg-zinc-950 px-4 py-2 font-mono text-xs text-zinc-100 ring-1 ring-zinc-800">
                 <code>{pkg.install}</code>
               </pre>
               <p className="mt-5 flex w-fit items-center gap-1 text-sm font-medium text-brand-600 group-hover:gap-2 transition-all dark:text-brand-300">

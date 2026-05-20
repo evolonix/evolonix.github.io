@@ -10,7 +10,7 @@ export default function ReactRouterNextPage() {
           @evolonix/react-router-next
         </p>
         <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
-          Filesystem routing for React Router 7.
+          Next.js-style filesystem routing for React Router 7.
         </h1>
         <p className="mt-3 max-w-2xl text-white/90">
           A Vite plugin and a tiny runtime that turns a folder of{" "}
@@ -20,7 +20,7 @@ export default function ReactRouterNextPage() {
           files into typed routes — params, layouts, parallel slots,
           intercepting routes, loading and error boundaries.
         </p>
-        <pre className="mt-5 inline-block rounded-lg bg-black/30 px-4 py-2 font-mono text-xs ring-1 ring-white/20">
+        <pre className="mt-5 w-fit max-w-full overflow-x-auto rounded-lg bg-black/30 px-4 py-2 font-mono text-xs ring-1 ring-white/20">
           <code>npm i @evolonix/react-router-next react-router</code>
         </pre>
       </div>
@@ -31,9 +31,8 @@ export default function ReactRouterNextPage() {
         </h2>
         <p className="mt-2 max-w-2xl text-zinc-600 dark:text-zinc-400">
           Click any card to open it as a modal. Refresh the page or hit back —
-          the same URL renders as a full page. That&apos;s an intercepting
-          route inside a parallel slot, all wired up via the file conventions
-          below.
+          the same URL renders as a full page. That&apos;s an intercepting route
+          inside a parallel slot, all wired up via the file conventions below.
         </p>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {examples.map((example) => (
@@ -54,8 +53,8 @@ export default function ReactRouterNextPage() {
             <code>[exampleId]</code> dynamic segment for each example
           </Bullet>
           <Bullet>
-            <code>@modal</code> parallel slot with{" "}
-            <code>(.)[exampleId]</code> interceptor
+            <code>@modal</code> parallel slot with <code>(.)[exampleId]</code>{" "}
+            interceptor
           </Bullet>
           <Bullet>
             <code>loading.tsx</code> shown while <code>useExamples()</code>{" "}

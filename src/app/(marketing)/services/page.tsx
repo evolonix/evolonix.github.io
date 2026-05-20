@@ -62,7 +62,7 @@ export default function Services() {
                 {s.title}
               </h2>
               <p
-                className={`mt-2 inline-block rounded-full bg-linear-to-r ${s.accent} bg-clip-text text-sm font-medium text-transparent`}
+                className={`mt-2 bg-linear-to-r ${s.accent} bg-clip-text text-sm font-medium text-transparent`}
               >
                 {s.outcome}
               </p>

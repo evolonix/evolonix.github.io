@@ -17,7 +17,7 @@ const EXAMPLES: Example[] = [
     blurb: "The two file conventions that drive every route.",
     detail:
       "A page.tsx is the leaf component for a route. A layout.tsx wraps its children via <Outlet /> and persists across navigation between sibling routes.",
-    tone: "from-emerald-500 to-emerald-400",
+    tone: "from-slate-400 to-slate-300",
     code: `// src/app/dashboard/layout.tsx
 import { Outlet } from "react-router";
 
@@ -41,7 +41,7 @@ export default function DashboardHome() {
     blurb: "Typed params from the folder name — no manual generics.",
     detail:
       "A folder named [postId] becomes :postId in the URL and a typed { postId: string } on the page's RouteProps. The runtime parses params from the URL and passes them in as a prop.",
-    tone: "from-sky-500 to-cyan-400",
+    tone: "from-blue-500 to-sky-400",
     code: `// src/app/posts/[postId]/page.tsx
 import type { RouteProps } from "virtual:react-router-next/posts/[postId]";
 
@@ -55,7 +55,7 @@ export default function PostPage({ params }: RouteProps) {
     blurb: "Organize folders without leaking into the URL.",
     detail:
       "A folder name wrapped in parentheses is stripped from the route. Use it to colocate marketing pages, admin areas, or feature flags under a shared prefix without changing the URL.",
-    tone: "from-fuchsia-500 to-pink-400",
+    tone: "from-blue-500 to-sky-400",
     code: `src/app/
 └── (marketing)/        // ← stripped from URL
     ├── about/page.tsx  // /about
@@ -67,7 +67,7 @@ export default function PostPage({ params }: RouteProps) {
     blurb: "Render multiple independent route trees in one layout.",
     detail:
       "A folder starting with @ does not contribute a URL segment. Instead it is matched independently against the current URL and passed to the parent layout as a named prop alongside the main <Outlet />.",
-    tone: "from-violet-500 to-purple-400",
+    tone: "from-fuchsia-500 to-pink-400",
     code: `// src/app/dashboard/layout.tsx
 export default function DashboardLayout({
   analytics,
@@ -103,7 +103,7 @@ export default function DashboardLayout({
     blurb: "Boundaries that wrap the whole subtree.",
     detail:
       "Drop a loading.tsx and the runtime injects a Suspense + transition fallback around every descendant. Drop an error.tsx and it becomes the errorElement for the route. Both scoped to wherever you place them.",
-    tone: "from-rose-500 to-red-400",
+    tone: "from-emerald-500 to-green-400",
     code: `// src/app/posts/loading.tsx
 export default function Loading() {
   return <p>Loading posts…</p>;
@@ -123,7 +123,7 @@ export default function PostError() {
     blurb: "Throw from anywhere, render the nearest boundary.",
     detail:
       "A not-found.tsx renders when a URL doesn't match a descendant or when notFound() is called during render. The nearest ancestor wins, so you can scope 404 UI per area of the app.",
-    tone: "from-teal-500 to-emerald-400",
+    tone: "from-emerald-500 to-green-400",
     code: `// src/app/posts/_lib/use-posts.ts
 import { notFound } from "@evolonix/react-router-next";
 import { use } from "react";
@@ -148,7 +148,7 @@ export function usePost(id: string): Post {
     blurb: "URL builders that fail at compile time, not runtime.",
     detail:
       "Every dynamic route exposes a generate(params) helper from its virtual module. Pass the wrong shape and TypeScript catches it before the URL is built.",
-    tone: "from-indigo-500 to-blue-400",
+    tone: "from-blue-500 to-sky-400",
     code: `import { generate as generatePost } from "virtual:react-router-next/posts/[postId]";
 
 <NavLink to={generatePost({ postId: "a" })}>First post</NavLink>;`,
