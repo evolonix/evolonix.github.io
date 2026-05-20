@@ -1,11 +1,40 @@
-import { Link } from "react-router";
+import { useState } from "react";
+import { Link, NavLink as RRNavLink, useLocation } from "react-router";
 import { NavLink } from "./nav-link";
 import { ThemeToggle } from "./theme-toggle";
 
+const NAV_ITEMS = [
+  { to: "/", label: "Home", end: true },
+  { to: "/about", label: "About" },
+  { to: "/services", label: "Services" },
+  { to: "/packages", label: "Packages" },
+  { to: "/contact", label: "Contact" },
+];
+
 export function Header() {
+  const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const [lastPath, setLastPath] = useState(location.pathname);
+
+  if (location.pathname !== lastPath) {
+    setLastPath(location.pathname);
+    setOpen(false);
+  }
+
   return (
     <header className="sticky top-0 z-40 border-b border-zinc-200/70 bg-white/80 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/80">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-3">
+      <div className="mx-auto flex max-w-6xl items-center gap-3 px-6 py-3">
+        <button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          aria-label={open ? "Close menu" : "Open menu"}
+          className="inline-flex h-9 w-9 items-center justify-center rounded-full ring-1 ring-zinc-200 bg-white text-zinc-700 hover:bg-zinc-50 hover:text-brand-600 transition-colors sm:hidden dark:ring-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-brand-300"
+        >
+          {open ? <CloseIcon /> : <MenuIcon />}
+        </button>
+
         <Link
           to="/"
           className="flex items-center gap-2 text-base font-semibold tracking-tight"
@@ -17,18 +46,82 @@ export function Header() {
           <span>Evolonix</span>
         </Link>
 
-        <nav className="hidden items-center gap-1 sm:flex">
-          <NavLink to="/" end>
-            Home
-          </NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/services">Services</NavLink>
-          <NavLink to="/packages">Packages</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+        <nav className="ml-auto hidden items-center gap-1 sm:flex">
+          {NAV_ITEMS.map((item) => (
+            <NavLink key={item.to} to={item.to} end={item.end}>
+              {item.label}
+            </NavLink>
+          ))}
         </nav>
 
-        <ThemeToggle />
+        <div className="ml-auto sm:ml-0">
+          <ThemeToggle />
+        </div>
       </div>
+
+      {open && (
+        <nav
+          id="mobile-nav"
+          className="border-t border-zinc-200/70 sm:hidden dark:border-zinc-800/70"
+        >
+          <ul className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-3">
+            {NAV_ITEMS.map((item) => (
+              <li key={item.to}>
+                <RRNavLink
+                  to={item.to}
+                  end={item.end}
+                  className={({ isActive }) =>
+                    [
+                      "block rounded-lg px-3 py-2 text-base font-medium transition-colors",
+                      isActive
+                        ? "bg-brand-100 text-brand-700 dark:bg-brand-900/60 dark:text-brand-200"
+                        : "text-zinc-700 hover:bg-zinc-100 hover:text-brand-600 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-brand-300",
+                    ].join(" ")
+                  }
+                >
+                  {item.label}
+                </RRNavLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
     </header>
+  );
+}
+
+function MenuIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="18"
+      height="18"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M4 7h16M4 12h16M4 17h16" />
+    </svg>
+  );
+}
+
+function CloseIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="18"
+      height="18"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M6 6l12 12M18 6 6 18" />
+    </svg>
   );
 }

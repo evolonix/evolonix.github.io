@@ -71,9 +71,10 @@ export default function Home() {
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {HIGHLIGHTS.map((card) => (
-            <article
+            <Link
               key={card.href}
-              className="group relative overflow-hidden rounded-2xl bg-white ring-1 ring-zinc-200 transition hover:-translate-y-0.5 hover:ring-brand-300 hover:shadow-lg dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:ring-brand-700"
+              to={card.href}
+              className="group relative block overflow-hidden rounded-2xl bg-white ring-1 ring-zinc-200 transition hover:-translate-y-0.5 hover:ring-brand-300 hover:shadow-lg dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:ring-brand-700"
             >
               <div
                 aria-hidden
@@ -89,15 +90,12 @@ export default function Home() {
                 <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">
                   {card.body}
                 </p>
-                <Link
-                  to={card.href}
-                  className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-brand-600 group-hover:gap-2 transition-all dark:text-brand-300"
-                >
+                <p className="mt-5 flex w-fit items-center gap-1 text-sm font-medium text-brand-600 group-hover:gap-2 transition-all dark:text-brand-300">
                   {card.cta}
                   <span aria-hidden>→</span>
-                </Link>
+                </p>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </section>

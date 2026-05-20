@@ -45,7 +45,7 @@ export default function PackagesIndex() {
               <pre className="mt-5 inline-block rounded-lg bg-zinc-950 px-4 py-2 font-mono text-xs text-zinc-100 ring-1 ring-zinc-800">
                 <code>{pkg.install}</code>
               </pre>
-              <p className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-brand-600 group-hover:gap-2 transition-all dark:text-brand-300">
+              <p className="mt-5 flex w-fit items-center gap-1 text-sm font-medium text-brand-600 group-hover:gap-2 transition-all dark:text-brand-300">
                 Explore the demo
                 <span aria-hidden>→</span>
               </p>
