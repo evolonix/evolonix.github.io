@@ -1,5 +1,6 @@
 import { notFound } from "@evolonix/react-router-next";
 import { use } from "react";
+import type { HighlightLang } from "./highlight";
 
 export interface Example {
   id: string;
@@ -7,6 +8,7 @@ export interface Example {
   blurb: string;
   detail: string;
   code: string;
+  lang?: HighlightLang;
   tone: string;
 }
 
@@ -56,6 +58,7 @@ export default function PostPage({ params }: RouteProps) {
     detail:
       "A folder name wrapped in parentheses is stripped from the route. Use it to colocate marketing pages, admin areas, or feature flags under a shared prefix without changing the URL.",
     tone: "from-blue-500 to-sky-400",
+    lang: "text",
     code: `src/app/
 └── (marketing)/        // ← stripped from URL
     ├── about/page.tsx  // /about
@@ -89,6 +92,7 @@ export default function DashboardLayout({
     detail:
       "An interceptor folder named (.) (or (..) or (...)) renders its page.tsx on soft-navigation (PUSH/REPLACE), while a hard load or POP renders the original target page. Pair with a @modal slot so the underlying page stays mounted behind the dialog.",
     tone: "from-amber-500 to-orange-400",
+    lang: "text",
     code: `gallery/
 ├── layout.tsx              // ({ modal }) — main flow + slot overlay
 ├── page.tsx                // /gallery (stays mounted on soft-nav)

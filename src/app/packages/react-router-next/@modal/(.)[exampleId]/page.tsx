@@ -11,7 +11,7 @@ export default function ExampleModal({ params }: RouteProps) {
         {example.blurb}
       </p>
       <p className="mt-4 text-zinc-700 dark:text-zinc-300">{example.detail}</p>
-      <CodeBlock className="mt-5" code={example.code} />
+      <CodeBlock className="mt-5" code={example.code} lang={example.lang} />
       <p className="mt-4 text-xs text-zinc-500 dark:text-zinc-500">
         Rendered by the <code>(.)[exampleId]</code> interceptor in the{" "}
         <code>@modal</code> slot. Refresh this page to see the full-page route

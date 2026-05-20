@@ -30,7 +30,7 @@ export default function ExamplePage({ params }: RouteProps) {
           <p className="mt-4 text-zinc-700 dark:text-zinc-300">
             {example.detail}
           </p>
-          <CodeBlock className="mt-6" code={example.code} />
+          <CodeBlock className="mt-6" code={example.code} lang={example.lang} />
         </div>
       </div>
       <p className="mt-6 text-xs text-zinc-500 dark:text-zinc-500">

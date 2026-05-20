@@ -31,3 +31,27 @@ body {
 .dark body {
   @apply bg-zinc-950 text-zinc-100;
 }
+
+.shiki-block .shiki {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.shiki-block .shiki,
+.shiki-block .shiki span {
+  color: var(--shiki-light);
+}
+
+.shiki-block {
+  background-color: #ffffff;
+}
+
+.dark .shiki-block .shiki,
+.dark .shiki-block .shiki span {
+  color: var(--shiki-dark);
+}
+
+.dark .shiki-block {
+  background-color: #24292e;
+}
