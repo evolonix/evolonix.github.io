@@ -1,73 +1,49 @@
-# React + TypeScript + Vite
+# evolonix.github.io
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Evolonix marketing site — services, open-source packages, and how to get in touch. Deployed to [evolonix.github.io](https://evolonix.github.io) via GitHub Pages.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vite.dev/) for dev server and build
+- [react-router](https://reactrouter.com/) with [@evolonix/react-router-next](https://www.npmjs.com/package/@evolonix/react-router-next) file-based routing
+- [Tailwind CSS v4](https://tailwindcss.com/)
 
-## React Compiler
+## Getting started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+nvm use       # Node version pinned in .nvmrc
+npm install
+npm run dev   # http://localhost:5173
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Scripts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- `npm run dev` — start the Vite dev server with HMR
+- `npm run build` — type-check and build to `dist/` (runs `typegen` first)
+- `npm run preview` — serve the production build locally
+- `npm run lint` — run ESLint
+- `npm run typegen` — regenerate route types from `src/app/`
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project layout
+
 ```
+src/
+  app/                     file-based routes
+    (marketing)/           grouped marketing routes (about, contact, services)
+    packages/              open-source package pages
+    layout.tsx             root layout
+    page.tsx               home
+    not-found.tsx          404
+  _components/             shared UI
+  _lib/                    shared utilities
+  index.css                Tailwind entry
+  main.tsx                 app bootstrap
+public/                    static assets served as-is
+```
+
+Routes live under `src/app/` and follow the `@evolonix/react-router-next` conventions: `page.tsx` for the route, `layout.tsx` for nested layouts, `(group)` folders for organization without affecting the URL.
+
+## Deployment
+
+Pushes to `main` trigger [.github/workflows/deploy.yml](.github/workflows/deploy.yml), which builds the site and publishes `dist/` to GitHub Pages. A `404.html` shim in `public/` enables client-side routing on Pages (see [rafgraph/spa-github-pages](https://github.com/rafgraph/spa-github-pages)).
