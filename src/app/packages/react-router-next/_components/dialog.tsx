@@ -25,10 +25,10 @@ export function Dialog({
     el.showModal();
     const onCancel = (e: Event) => {
       e.preventDefault();
-      navigate(closeTo);
+      navigate(closeTo, { viewTransition: true });
     };
     const onClick = (e: MouseEvent) => {
-      if (e.target === el) navigate(closeTo);
+      if (e.target === el) navigate(closeTo, { viewTransition: true });
     };
     el.addEventListener("cancel", onCancel);
     el.addEventListener("click", onClick);
@@ -55,7 +55,7 @@ export function Dialog({
         <button
           type="button"
           autoFocus
-          onClick={() => navigate(closeTo)}
+          onClick={() => navigate(closeTo, { viewTransition: true })}
           aria-label="Close dialog"
           className="inline-flex h-8 w-8 items-center justify-center rounded-full text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
         >

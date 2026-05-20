@@ -6,6 +6,7 @@ export function ExampleCard({ example }: { example: Example }) {
   return (
     <Link
       to={generate({ exampleId: example.id })}
+      viewTransition
       className="group relative block overflow-hidden rounded-2xl bg-white p-5 ring-1 ring-zinc-200 transition hover:-translate-y-0.5 hover:shadow-lg dark:bg-zinc-900 dark:ring-zinc-800"
     >
       <div

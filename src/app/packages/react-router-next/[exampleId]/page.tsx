@@ -11,6 +11,7 @@ export default function ExamplePage({ params }: RouteProps) {
     <article>
       <Link
         to="/packages/react-router-next"
+        viewTransition
         className="text-brand-600 dark:text-brand-300 inline-flex items-center gap-1 text-sm transition-all hover:gap-2"
       >
         <span aria-hidden>←</span>

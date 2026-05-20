@@ -12,6 +12,7 @@ export function NavLink({ to, end, children }: NavLinkProps) {
     <RRNavLink
       to={to}
       end={end}
+      viewTransition
       className={({ isActive }) =>
         [
           "rounded-full px-3 py-1.5 text-sm font-medium transition-colors",
