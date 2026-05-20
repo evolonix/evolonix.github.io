@@ -49,7 +49,7 @@ export default function Services() {
           {SERVICES.map((s) => (
             <article
               key={s.title}
-              className="group relative overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-zinc-200 transition hover:-translate-y-0.5 hover:shadow-lg dark:bg-zinc-900 dark:ring-zinc-800"
+              className="relative overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800"
             >
               <div
                 aria-hidden
