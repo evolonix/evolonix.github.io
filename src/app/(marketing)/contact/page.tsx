@@ -20,8 +20,7 @@ export default function Contact() {
     const message = String(data.get("message") ?? "").trim();
     if (!name) next.name = "Your name is required.";
     if (!email) next.email = "An email address is required.";
-    else if (!EMAIL_RE.test(email))
-      next.email = "Enter a valid email address.";
+    else if (!EMAIL_RE.test(email)) next.email = "Enter a valid email address.";
     if (!message) next.message = "A message is required.";
     return next;
   }
