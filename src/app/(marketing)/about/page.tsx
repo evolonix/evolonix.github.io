@@ -22,11 +22,14 @@ const MILESTONES = [
   { year: "2025", note: "Published react-router-next; hello, you." },
 ];
 
+import { useDocumentTitle } from "../../_lib/use-document-title";
+
 export default function About() {
+  useDocumentTitle("About");
   return (
     <>
       <section className="mx-auto max-w-6xl px-6 py-20">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-600 dark:text-brand-300">
+        <p className="text-brand-600 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
           About
         </p>
         <h1 className="mt-3 text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-zinc-50">
@@ -54,7 +57,7 @@ export default function About() {
             </p>
           </div>
           <aside className="rounded-2xl bg-zinc-50 p-6 ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800">
-            <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-600 dark:text-brand-300">
+            <h2 className="text-brand-600 dark:text-brand-300 text-sm font-semibold tracking-[0.18em] uppercase">
               Milestones
             </h2>
             <ol className="mt-4 space-y-3 text-sm">
@@ -75,7 +78,7 @@ export default function About() {
 
       <section className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/40">
         <div className="mx-auto max-w-6xl px-6 py-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-600 dark:text-brand-300">
+          <p className="text-brand-600 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
             Values
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-50">

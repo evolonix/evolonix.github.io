@@ -6,9 +6,19 @@ import { ThemeProvider } from "./_lib/theme";
 export default function RootLayout() {
   return (
     <ThemeProvider>
+      <a
+        href="#main-content"
+        className="focus:bg-brand-600 sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+      >
+        Skip to main content
+      </a>
       <div className="flex min-h-full flex-col">
         <Header />
-        <main className="flex-1">
+        <main
+          id="main-content"
+          tabIndex={-1}
+          className="flex-1 focus:outline-none"
+        >
           <Outlet />
         </main>
         <Footer />

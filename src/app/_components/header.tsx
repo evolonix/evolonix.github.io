@@ -30,7 +30,7 @@ export function Header() {
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-full ring-1 ring-zinc-200 bg-white text-zinc-700 hover:bg-zinc-50 hover:text-brand-600 transition-colors sm:hidden dark:ring-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-brand-300"
+          className="hover:text-brand-600 dark:hover:text-brand-300 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-zinc-700 ring-1 ring-zinc-200 transition-colors hover:bg-zinc-50 sm:hidden dark:bg-zinc-900 dark:text-zinc-300 dark:ring-zinc-700 dark:hover:bg-zinc-800"
         >
           {open ? <CloseIcon /> : <MenuIcon />}
         </button>
@@ -43,7 +43,10 @@ export function Header() {
           <span>Evolonix</span>
         </Link>
 
-        <nav className="ml-auto hidden items-center gap-1 sm:flex">
+        <nav
+          aria-label="Primary"
+          className="ml-auto hidden items-center gap-1 sm:flex"
+        >
           {NAV_ITEMS.map((item) => (
             <NavLink key={item.to} to={item.to} end={item.end}>
               {item.label}
@@ -59,6 +62,7 @@ export function Header() {
       {open && (
         <nav
           id="mobile-nav"
+          aria-label="Mobile"
           className="border-t border-zinc-200/70 sm:hidden dark:border-zinc-800/70"
         >
           <ul className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-3">
@@ -72,7 +76,7 @@ export function Header() {
                       "block rounded-lg px-3 py-2 text-base font-medium transition-colors",
                       isActive
                         ? "bg-brand-100 text-brand-700 dark:bg-brand-900/60 dark:text-brand-200"
-                        : "text-zinc-700 hover:bg-zinc-100 hover:text-brand-600 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-brand-300",
+                        : "hover:text-brand-600 dark:hover:text-brand-300 text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800",
                     ].join(" ")
                   }
                 >

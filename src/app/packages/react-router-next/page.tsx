@@ -1,12 +1,14 @@
+import { useDocumentTitle } from "../../_lib/use-document-title";
 import { ExampleCard } from "./_components/example-card";
 import { useExamples } from "./_lib/use-examples";
 
 export default function ReactRouterNextPage() {
+  useDocumentTitle("@evolonix/react-router-next");
   const examples = useExamples();
   return (
     <>
-      <div className="rounded-2xl bg-linear-to-br from-brand-500 via-fuchsia-500 to-accent-500 p-6 text-white sm:p-8">
-        <p className="font-mono text-xs uppercase tracking-[0.22em] text-white/80">
+      <div className="from-brand-500 to-accent-500 rounded-2xl bg-linear-to-br via-fuchsia-500 p-6 text-white sm:p-8">
+        <p className="font-mono text-xs tracking-[0.22em] text-white/90 uppercase">
           @evolonix/react-router-next
         </p>
         <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
@@ -86,7 +88,7 @@ function Bullet({ children }: { children: React.ReactNode }) {
     <li className="flex items-start gap-3">
       <span
         aria-hidden
-        className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500"
+        className="bg-brand-500 mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
       />
       <span>{children}</span>
     </li>

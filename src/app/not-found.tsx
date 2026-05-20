@@ -1,9 +1,11 @@
 import { Link } from "react-router";
+import { useDocumentTitle } from "./_lib/use-document-title";
 
 export default function NotFound() {
+  useDocumentTitle("Page not found");
   return (
     <div className="mx-auto flex max-w-2xl flex-col items-start gap-6 px-6 py-24">
-      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-600 dark:text-brand-300">
+      <p className="text-brand-600 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
         404
       </p>
       <h1 className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
@@ -15,7 +17,7 @@ export default function NotFound() {
       </p>
       <Link
         to="/"
-        className="rounded-full bg-brand-600 px-5 py-2 text-sm font-medium text-white shadow-sm hover:bg-brand-700"
+        className="bg-brand-600 hover:bg-brand-700 rounded-full px-5 py-2 text-sm font-medium text-white shadow-sm"
       >
         Back to home
       </Link>

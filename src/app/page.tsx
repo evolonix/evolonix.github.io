@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { useDocumentTitle } from "./_lib/use-document-title";
 
 const HIGHLIGHTS = [
   {
@@ -28,9 +29,10 @@ const HIGHLIGHTS = [
 ];
 
 export default function Home() {
+  useDocumentTitle("Home");
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-linear-to-br from-brand-500 via-fuchsia-500 to-accent-500 text-white">
+      <section className="from-brand-500 to-accent-500 relative isolate overflow-hidden bg-linear-to-br via-fuchsia-500 text-white">
         <div
           aria-hidden
           className="pointer-events-none absolute -top-32 -right-24 h-96 w-96 rounded-full bg-white/15 blur-3xl"
@@ -40,7 +42,7 @@ export default function Home() {
           className="pointer-events-none absolute -bottom-32 -left-24 h-96 w-96 rounded-full bg-black/10 blur-3xl"
         />
         <div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-white/80">
+          <p className="mb-4 text-xs font-semibold tracking-[0.22em] text-white/90 uppercase">
             Evolonix
           </p>
           <h1 className="max-w-3xl text-4xl font-bold tracking-tight sm:text-6xl">
@@ -54,13 +56,13 @@ export default function Home() {
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
               to="/services"
-              className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-brand-700 shadow-sm hover:bg-zinc-100"
+              className="text-brand-700 rounded-full bg-white px-5 py-2.5 text-sm font-semibold shadow-sm hover:bg-zinc-100"
             >
               Explore services
             </Link>
             <Link
               to="/packages"
-              className="rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-inset ring-white/30 hover:bg-white/20"
+              className="rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-white/30 ring-inset hover:bg-white/20"
             >
               Open source
             </Link>
@@ -81,16 +83,16 @@ export default function Home() {
                 className={`absolute inset-x-0 top-0 h-1 bg-linear-to-r ${card.tone}`}
               />
               <div className="p-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-600 dark:text-brand-300">
+                <p className="text-brand-600 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
                   {card.eyebrow}
                 </p>
-                <h3 className="mt-3 text-xl font-semibold text-zinc-900 dark:text-zinc-50">
+                <h2 className="mt-3 text-xl font-semibold text-zinc-900 dark:text-zinc-50">
                   {card.title}
-                </h3>
+                </h2>
                 <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">
                   {card.body}
                 </p>
-                <p className="mt-5 flex w-fit items-center gap-1 text-sm font-medium text-brand-600 group-hover:gap-2 transition-all dark:text-brand-300">
+                <p className="text-brand-600 dark:text-brand-300 mt-5 flex w-fit items-center gap-1 text-sm font-medium transition-all group-hover:gap-2">
                   {card.cta}
                   <span aria-hidden>→</span>
                 </p>
@@ -102,7 +104,7 @@ export default function Home() {
 
       <section className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/40">
         <div className="mx-auto max-w-6xl px-6 py-14">
-          <p className="text-center text-xs font-semibold uppercase tracking-[0.22em] text-zinc-500 dark:text-zinc-400">
+          <p className="text-center text-xs font-semibold tracking-[0.22em] text-zinc-500 uppercase dark:text-zinc-400">
             Trusted by builders across the ecosystem
           </p>
           <ul className="mt-6 grid grid-cols-2 gap-6 text-center text-sm font-medium text-zinc-600 sm:grid-cols-4 dark:text-zinc-400">

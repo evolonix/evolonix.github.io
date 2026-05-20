@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useId, useRef, type ReactNode } from "react";
 import { useNavigate } from "react-router";
 
 interface DialogProps {
@@ -16,63 +16,65 @@ export function Dialog({
   closeTo = "/packages/react-router-next",
 }: DialogProps) {
   const navigate = useNavigate();
-  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const titleId = useId();
 
   useEffect(() => {
-    closeButtonRef.current?.focus();
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") navigate(closeTo);
+    const el = dialogRef.current;
+    if (!el) return;
+    el.showModal();
+    const onCancel = (e: Event) => {
+      e.preventDefault();
+      navigate(closeTo);
     };
-    window.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
+    const onClick = (e: MouseEvent) => {
+      if (e.target === el) navigate(closeTo);
+    };
+    el.addEventListener("cancel", onCancel);
+    el.addEventListener("click", onClick);
     return () => {
-      window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
+      el.removeEventListener("cancel", onCancel);
+      el.removeEventListener("click", onClick);
+      if (el.open) el.close();
     };
   }, [navigate, closeTo]);
 
   return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-label={title}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8"
+    <dialog
+      ref={dialogRef}
+      aria-labelledby={titleId}
+      className="max-h-[85vh] w-full max-w-2xl overflow-auto rounded-2xl bg-white p-6 shadow-2xl ring-1 ring-zinc-200 backdrop:bg-zinc-950/70 backdrop:backdrop-blur-sm dark:bg-zinc-900 dark:ring-zinc-800"
     >
-      <button
-        type="button"
-        aria-label="Close"
-        onClick={() => navigate(closeTo)}
-        className="absolute inset-0 cursor-default bg-zinc-950/70 backdrop-blur-sm"
-      />
-      <div className="relative z-10 max-h-[85vh] w-full max-w-2xl overflow-auto rounded-2xl bg-white p-6 shadow-2xl ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800">
-        <div className="flex items-start justify-between gap-4">
-          <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50">
-            {title}
-          </h2>
-          <button
-            ref={closeButtonRef}
-            type="button"
-            onClick={() => navigate(closeTo)}
-            className="inline-flex h-8 w-8 items-center justify-center rounded-full text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
-            aria-label="Close dialog"
+      <div className="flex items-start justify-between gap-4">
+        <h2
+          id={titleId}
+          className="text-xl font-semibold text-zinc-900 dark:text-zinc-50"
+        >
+          {title}
+        </h2>
+        <button
+          type="button"
+          autoFocus
+          onClick={() => navigate(closeTo)}
+          aria-label="Close dialog"
+          className="inline-flex h-8 w-8 items-center justify-center rounded-full text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
           >
-            <svg
-              viewBox="0 0 24 24"
-              width="18"
-              height="18"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M18 6 6 18M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-        <div className="mt-4">{children}</div>
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
       </div>
-    </div>
+      <div className="mt-4">{children}</div>
+    </dialog>
   );
 }
