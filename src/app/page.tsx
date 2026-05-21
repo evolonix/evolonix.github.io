@@ -101,20 +101,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      <section className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/40">
-        <div className="mx-auto max-w-6xl px-6 py-14">
-          <p className="text-center text-xs font-semibold tracking-[0.22em] text-zinc-500 uppercase dark:text-zinc-400">
-            Trusted by builders across the ecosystem
-          </p>
-          <ul className="mt-6 grid grid-cols-2 gap-6 text-center text-sm font-medium text-zinc-600 sm:grid-cols-4 dark:text-zinc-400">
-            <li>Helio Labs</li>
-            <li>Northpine</li>
-            <li>Quarry &amp; Co</li>
-            <li>Atlas Foundry</li>
-          </ul>
-        </div>
-      </section>
     </>
   );
 }
