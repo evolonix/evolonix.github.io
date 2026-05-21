@@ -177,7 +177,9 @@ export default function Contact() {
                 <ExternalLink href="https://github.com/evolonix">
                   GitHub
                 </ExternalLink>
-                <ExternalLink href="https://bsky.app/">Bluesky</ExternalLink>
+                <ExternalLink href="https://bsky.app/profile/evolonix.com">
+                  Bluesky
+                </ExternalLink>
               </span>
             }
           />
