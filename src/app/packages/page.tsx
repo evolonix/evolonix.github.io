@@ -35,7 +35,7 @@ export default function PackagesIndex() {
                 aria-hidden
                 className={`absolute inset-x-0 top-0 h-1 bg-linear-to-r ${pkg.tone}`}
               />
-              <p className="text-brand-600 dark:text-brand-300 font-mono text-sm">
+              <p className="text-brand-700 dark:text-brand-300 font-mono text-sm">
                 {pkg.name}
               </p>
               <h2 className="mt-1 text-2xl font-semibold text-zinc-900 dark:text-zinc-50">
@@ -47,7 +47,7 @@ export default function PackagesIndex() {
               <pre className="mt-5 w-fit max-w-full overflow-x-auto rounded-lg bg-zinc-950 px-4 py-2 font-mono text-xs text-zinc-100 ring-1 ring-zinc-800">
                 <code>{pkg.install}</code>
               </pre>
-              <p className="text-brand-600 dark:text-brand-300 mt-5 flex w-fit items-center gap-1 text-sm font-medium transition-all group-hover:gap-2">
+              <p className="text-brand-700 dark:text-brand-300 mt-5 flex w-fit items-center gap-1 text-sm font-medium transition-all group-hover:gap-2">
                 Explore the demo
                 <span aria-hidden>→</span>
               </p>

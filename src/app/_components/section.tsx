@@ -23,7 +23,7 @@ export function Section({
       id={id}
       className={
         isBrand
-          ? "from-brand-500 to-accent-500 relative isolate overflow-hidden bg-linear-to-br via-fuchsia-500 text-white"
+          ? "from-brand-600 to-brand-800 relative isolate overflow-hidden bg-linear-to-br via-fuchsia-700 text-white"
           : "bg-transparent"
       }
     >
@@ -32,8 +32,8 @@ export function Section({
           <p
             className={
               isBrand
-                ? "mb-3 text-xs font-semibold tracking-[0.18em] text-white/80 uppercase"
-                : "text-brand-600 dark:text-brand-300 mb-3 text-xs font-semibold tracking-[0.18em] uppercase"
+                ? "mb-3 text-xs font-semibold tracking-[0.18em] text-white uppercase"
+                : "text-brand-700 dark:text-brand-300 mb-3 text-xs font-semibold tracking-[0.18em] uppercase"
             }
           >
             {eyebrow}
@@ -52,7 +52,7 @@ export function Section({
           <p
             className={
               isBrand
-                ? "mt-4 max-w-2xl text-lg text-white/90"
+                ? "mt-4 max-w-2xl text-lg text-white"
                 : "mt-4 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400"
             }
           >

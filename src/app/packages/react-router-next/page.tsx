@@ -7,14 +7,14 @@ export default function ReactRouterNextPage() {
   const examples = useExamples();
   return (
     <>
-      <div className="from-brand-500 to-accent-500 rounded-2xl bg-linear-to-br via-fuchsia-500 p-6 text-white sm:p-8">
-        <p className="font-mono text-xs tracking-[0.22em] text-white/90 uppercase">
+      <div className="from-brand-600 to-brand-800 rounded-2xl bg-linear-to-br via-fuchsia-700 p-6 text-white sm:p-8">
+        <p className="font-mono text-xs tracking-[0.22em] text-white uppercase">
           @evolonix/react-router-next
         </p>
         <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
           Next.js-style filesystem routing for React Router 7.
         </h1>
-        <p className="mt-3 max-w-2xl text-white/90">
+        <p className="mt-3 max-w-2xl text-white">
           A Vite plugin and a tiny runtime that turns a folder of{" "}
           <code className="rounded bg-white/20 px-1 py-0.5 font-mono text-sm">
             page.tsx

@@ -36,7 +36,7 @@ export default function Services() {
   return (
     <>
       <section className="mx-auto max-w-6xl px-6 py-20">
-        <p className="text-brand-600 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
+        <p className="text-brand-700 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
           Services
         </p>
         <h1 className="mt-3 text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-zinc-50">
@@ -58,7 +58,7 @@ export default function Services() {
                 aria-hidden
                 className={`absolute inset-x-0 top-0 h-1 bg-linear-to-r ${s.accent}`}
               />
-              <p className="text-brand-600 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
+              <p className="text-brand-700 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
                 {s.eyebrow}
               </p>
               <h2 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-50">

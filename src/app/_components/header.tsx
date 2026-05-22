@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink as RRNavLink, useLocation } from "react-router";
 import { NavLink } from "./nav-link";
 import { ThemeToggle } from "./theme-toggle";
@@ -15,22 +15,46 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const [lastPath, setLastPath] = useState(location.pathname);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const mobileNavRef = useRef<HTMLElement>(null);
 
   if (location.pathname !== lastPath) {
     setLastPath(location.pathname);
     setOpen(false);
   }
 
+  useEffect(() => {
+    if (!open) return;
+    const main = document.getElementById("main-content");
+    const footer = document.querySelector("footer");
+    main?.setAttribute("inert", "");
+    footer?.setAttribute("inert", "");
+    mobileNavRef.current?.focus();
+    function onKey(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
+    }
+    document.addEventListener("keydown", onKey);
+    return () => {
+      main?.removeAttribute("inert");
+      footer?.removeAttribute("inert");
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
   return (
     <header className="sticky top-0 z-40 border-b border-zinc-200/70 bg-white/80 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/80">
       <div className="mx-auto flex max-w-6xl items-center gap-3 px-6 py-3">
         <button
+          ref={toggleRef}
           type="button"
           onClick={() => setOpen((o) => !o)}
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
-          className="hover:text-brand-600 dark:hover:text-brand-300 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-zinc-700 ring-1 ring-zinc-200 transition-colors hover:bg-zinc-50 sm:hidden dark:bg-zinc-900 dark:text-zinc-300 dark:ring-zinc-700 dark:hover:bg-zinc-800"
+          className="hover:text-brand-700 dark:hover:text-brand-300 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-zinc-700 ring-1 ring-zinc-200 transition-colors hover:bg-zinc-50 sm:hidden dark:bg-zinc-900 dark:text-zinc-300 dark:ring-zinc-700 dark:hover:bg-zinc-800"
         >
           {open ? <CloseIcon /> : <MenuIcon />}
         </button>
@@ -61,9 +85,11 @@ export function Header() {
 
       {open && (
         <nav
+          ref={mobileNavRef}
           id="mobile-nav"
           aria-label="Mobile"
-          className="border-t border-zinc-200/70 sm:hidden dark:border-zinc-800/70"
+          tabIndex={-1}
+          className="border-t border-zinc-200/70 outline-none sm:hidden dark:border-zinc-800/70"
         >
           <ul className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-3">
             {NAV_ITEMS.map((item) => (
@@ -76,7 +102,7 @@ export function Header() {
                       "block rounded-lg px-3 py-2 text-base font-medium transition-colors",
                       isActive
                         ? "bg-brand-100 text-brand-700 dark:bg-brand-900/60 dark:text-brand-200"
-                        : "hover:text-brand-600 dark:hover:text-brand-300 text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800",
+                        : "hover:text-brand-700 dark:hover:text-brand-300 text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800",
                     ].join(" ")
                   }
                 >

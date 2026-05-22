@@ -12,7 +12,7 @@ export default function ExamplePage({ params }: RouteProps) {
       <Link
         to="/packages/react-router-next"
         viewTransition
-        className="text-brand-600 dark:text-brand-300 inline-flex items-center gap-1 text-sm transition-all hover:gap-2"
+        className="text-brand-700 dark:text-brand-300 inline-flex items-center gap-1 text-sm transition-all hover:gap-2"
       >
         <span aria-hidden>←</span>
         All examples
@@ -22,7 +22,7 @@ export default function ExamplePage({ params }: RouteProps) {
           aria-hidden
           className={`absolute inset-x-0 top-0 h-1 bg-linear-to-r ${example.tone}`}
         />
-        <p className="text-brand-600 dark:text-brand-300 font-mono text-xs tracking-[0.18em] uppercase">
+        <p className="text-brand-700 dark:text-brand-300 font-mono text-xs tracking-[0.18em] uppercase">
           Example
         </p>
         <h1 className="mt-2 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
@@ -36,7 +36,7 @@ export default function ExamplePage({ params }: RouteProps) {
         </p>
         <CodeBlock className="mt-6" code={example.code} lang={example.lang} />
       </div>
-      <p className="mt-6 text-xs text-zinc-500 dark:text-zinc-500">
+      <p className="mt-6 text-xs text-zinc-600 dark:text-zinc-400">
         You are viewing the full-page route at{" "}
         <code>/packages/react-router-next/{example.id}</code>. Soft-navigating
         from the index renders the same URL inside the <code>@modal</code> slot

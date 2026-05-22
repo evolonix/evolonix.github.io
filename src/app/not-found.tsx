@@ -5,7 +5,7 @@ export default function NotFound() {
   useDocumentTitle("Page not found");
   return (
     <div className="mx-auto flex max-w-2xl flex-col items-start gap-6 px-6 py-24">
-      <p className="text-brand-600 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
+      <p className="text-brand-700 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
         404
       </p>
       <h1 className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">

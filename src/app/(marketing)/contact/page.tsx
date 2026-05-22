@@ -55,7 +55,7 @@ export default function Contact() {
 
   return (
     <section className="mx-auto max-w-6xl px-6 py-20">
-      <p className="text-brand-600 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
+      <p className="text-brand-700 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
         Contact
       </p>
       <h1 className="mt-3 text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-zinc-50">
@@ -260,7 +260,7 @@ function InfoBlock({ label, value, href }: InfoBlockProps) {
         {href ? (
           <a
             href={href}
-            className="text-brand-600 dark:text-brand-300 hover:underline"
+            className="text-brand-700 dark:text-brand-300 hover:underline"
           >
             {value}
           </a>
@@ -284,7 +284,7 @@ function ExternalLink({
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="text-brand-600 dark:text-brand-300 hover:underline"
+      className="text-brand-700 dark:text-brand-300 hover:underline"
     >
       {children}
     </a>

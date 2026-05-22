@@ -9,13 +9,13 @@ export function Footer() {
             href="https://github.com/evolonix"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-brand-600 dark:hover:text-brand-300"
+            className="hover:text-brand-700 dark:hover:text-brand-300"
           >
             GitHub
           </a>
           <a
             href="/packages"
-            className="hover:text-brand-600 dark:hover:text-brand-300"
+            className="hover:text-brand-700 dark:hover:text-brand-300"
           >
             Open source
           </a>

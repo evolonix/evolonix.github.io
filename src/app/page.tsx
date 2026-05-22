@@ -32,7 +32,7 @@ export default function Home() {
   useDocumentTitle("Home");
   return (
     <>
-      <section className="from-brand-500 to-accent-500 relative isolate overflow-hidden bg-linear-to-br via-fuchsia-500 text-white">
+      <section className="from-brand-600 to-brand-800 relative isolate overflow-hidden bg-linear-to-br via-fuchsia-700 text-white">
         <div
           aria-hidden
           className="pointer-events-none absolute -top-32 -right-24 h-96 w-96 rounded-full bg-white/15 blur-3xl"
@@ -42,13 +42,13 @@ export default function Home() {
           className="pointer-events-none absolute -bottom-32 -left-24 h-96 w-96 rounded-full bg-black/10 blur-3xl"
         />
         <div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
-          <p className="mb-4 text-xs font-semibold tracking-[0.22em] text-white/90 uppercase">
+          <p className="mb-4 text-xs font-semibold tracking-[0.22em] text-white uppercase">
             Evolonix
           </p>
           <h1 className="max-w-3xl text-4xl font-bold tracking-tight sm:text-6xl">
             Quietly powerful tools for React teams.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-white/90 sm:text-xl">
+          <p className="mt-6 max-w-2xl text-lg text-white sm:text-xl">
             We design, build, and steward the kind of frontends that don&apos;t
             slow down as they grow. From greenfield products to platform work,
             we partner with teams who care about craft.
@@ -83,7 +83,7 @@ export default function Home() {
                 className={`absolute inset-x-0 top-0 h-1 bg-linear-to-r ${card.tone}`}
               />
               <div className="p-6">
-                <p className="text-brand-600 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
+                <p className="text-brand-700 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
                   {card.eyebrow}
                 </p>
                 <h2 className="mt-3 text-xl font-semibold text-zinc-900 dark:text-zinc-50">
@@ -92,7 +92,7 @@ export default function Home() {
                 <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">
                   {card.body}
                 </p>
-                <p className="text-brand-600 dark:text-brand-300 mt-5 flex w-fit items-center gap-1 text-sm font-medium transition-all group-hover:gap-2">
+                <p className="text-brand-700 dark:text-brand-300 mt-5 flex w-fit items-center gap-1 text-sm font-medium transition-all group-hover:gap-2">
                   {card.cta}
                   <span aria-hidden>→</span>
                 </p>

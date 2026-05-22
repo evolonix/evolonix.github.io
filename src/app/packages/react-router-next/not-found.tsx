@@ -5,7 +5,7 @@ export default function ExampleNotFound() {
   useDocumentTitle("Example not found");
   return (
     <div className="rounded-2xl bg-white p-8 ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800">
-      <p className="text-brand-600 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
+      <p className="text-brand-700 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
         Example not found
       </p>
       <h1 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-50">
