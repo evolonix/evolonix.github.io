@@ -19,7 +19,7 @@ const EXAMPLES: Example[] = [
     blurb: "The two file conventions that drive every route.",
     detail:
       "A page.tsx is the leaf component for a route. A layout.tsx wraps its children via <Outlet /> and persists across navigation between sibling routes.",
-    tone: "from-slate-400 to-slate-300",
+    tone: "from-zinc-400 to-zinc-300",
     code: `// src/app/dashboard/layout.tsx
 import { Outlet } from "react-router";
 
