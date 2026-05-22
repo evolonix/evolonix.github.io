@@ -25,6 +25,13 @@ export default function ReactRouterNextPage() {
         <pre className="mt-5 w-fit max-w-full overflow-x-auto rounded-lg bg-black/30 px-4 py-2 font-mono text-xs ring-1 ring-white/20">
           <code>npm i @evolonix/react-router-next react-router</code>
         </pre>
+        <a
+          href="/react-router-next"
+          className="text-brand-700 mt-5 inline-flex items-center gap-1 rounded-full bg-white px-5 py-2.5 text-sm font-semibold shadow-sm transition-all hover:gap-2 hover:bg-zinc-100"
+        >
+          Full docs &amp; demos
+          <span aria-hidden>→</span>
+        </a>
       </div>
 
       <div className="mt-12">
