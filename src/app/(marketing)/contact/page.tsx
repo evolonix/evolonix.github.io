@@ -75,8 +75,12 @@ export default function Contact() {
           encType="text/plain"
           noValidate
           onSubmit={handleSubmit}
-          className="space-y-4 rounded-2xl bg-white p-6 ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800"
+          className="relative space-y-4 overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800"
         >
+          <div
+            aria-hidden
+            className="from-brand-500 to-accent-500 absolute inset-x-0 top-0 h-1 bg-linear-to-r via-fuchsia-500"
+          />
           <div
             aria-live="assertive"
             role={errorCount > 0 ? "alert" : undefined}
@@ -107,6 +111,7 @@ export default function Contact() {
               label="Your name"
               name="name"
               type="text"
+              autoComplete="name"
               required
               error={errors.name}
             />
@@ -114,11 +119,17 @@ export default function Contact() {
               label="Email"
               name="email"
               type="email"
+              autoComplete="email"
               required
               error={errors.email}
             />
           </div>
-          <Field label="Company" name="company" type="text" />
+          <Field
+            label="Company"
+            name="company"
+            type="text"
+            autoComplete="organization"
+          />
           <div>
             <label
               htmlFor="message"
@@ -135,7 +146,7 @@ export default function Contact() {
               aria-required="true"
               aria-invalid={errors.message ? "true" : undefined}
               aria-describedby={errors.message ? "message-error" : undefined}
-              className="focus:ring-brand-500 mt-1 block w-full rounded-lg border-0 bg-zinc-50 px-3 py-2 text-sm text-zinc-900 ring-1 ring-zinc-200 ring-inset placeholder:text-zinc-400 focus:ring-2 dark:bg-zinc-950 dark:text-zinc-100 dark:ring-zinc-700"
+              className="focus:ring-brand-500 mt-1 block w-full rounded-lg border-0 bg-zinc-50 px-3 py-2 text-base text-zinc-900 ring-1 ring-zinc-200 ring-inset placeholder:text-zinc-400 focus:ring-2 sm:text-sm dark:bg-zinc-950 dark:text-zinc-100 dark:ring-zinc-700"
             />
             {errors.message && (
               <p
@@ -207,11 +218,19 @@ interface FieldProps {
   label: string;
   name: string;
   type: string;
+  autoComplete?: string;
   required?: boolean;
   error?: string;
 }
 
-function Field({ label, name, type, required, error }: FieldProps) {
+function Field({
+  label,
+  name,
+  type,
+  autoComplete,
+  required,
+  error,
+}: FieldProps) {
   const errorId = `${name}-error`;
   return (
     <div>
@@ -226,11 +245,12 @@ function Field({ label, name, type, required, error }: FieldProps) {
         id={name}
         name={name}
         type={type}
+        autoComplete={autoComplete}
         required={required}
         aria-required={required ? "true" : undefined}
         aria-invalid={error ? "true" : undefined}
         aria-describedby={error ? errorId : undefined}
-        className="focus:ring-brand-500 mt-1 block w-full rounded-lg border-0 bg-zinc-50 px-3 py-2 text-sm text-zinc-900 ring-1 ring-zinc-200 ring-inset placeholder:text-zinc-400 focus:ring-2 dark:bg-zinc-950 dark:text-zinc-100 dark:ring-zinc-700"
+        className="focus:ring-brand-500 mt-1 block w-full rounded-lg border-0 bg-zinc-50 px-3 py-2 text-base text-zinc-900 ring-1 ring-zinc-200 ring-inset placeholder:text-zinc-400 focus:ring-2 sm:text-sm dark:bg-zinc-950 dark:text-zinc-100 dark:ring-zinc-700"
       />
       {error && (
         <p
