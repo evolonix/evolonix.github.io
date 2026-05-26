@@ -14,7 +14,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@evolonix/react-router-next": "^3.1.1",
+    "@evolonix/react-router-next": "^3.3.0",
     "@tailwindcss/vite": "^4.3.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
