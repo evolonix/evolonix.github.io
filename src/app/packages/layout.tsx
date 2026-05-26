@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router";
+import { NavLink, Outlet } from "react-router";
 
 const PACKAGES = [
   {
@@ -19,20 +19,35 @@ export default function PackagesLayout() {
           Evolonix open source
         </h2>
         <nav className="mt-5 space-y-1 text-sm">
-          <Link
+          <NavLink
             to="/packages"
-            className="hover:text-brand-700 dark:hover:text-brand-300 block rounded-lg px-3 py-2 text-zinc-600 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-800"
+            end
+            className={({ isActive }) =>
+              [
+                "block rounded-lg px-3 py-2",
+                isActive
+                  ? "bg-brand-100 text-brand-700 dark:bg-brand-900/60 dark:text-brand-200"
+                  : "hover:text-brand-700 dark:hover:text-brand-300 text-zinc-600 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-800",
+              ].join(" ")
+            }
           >
             All packages
-          </Link>
+          </NavLink>
           {PACKAGES.map((pkg) => (
-            <Link
+            <NavLink
               key={pkg.href}
               to={pkg.href}
-              className="hover:text-brand-700 dark:hover:text-brand-300 block rounded-lg px-3 py-2 font-mono text-xs text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
+              className={({ isActive }) =>
+                [
+                  "block rounded-lg px-3 py-2 font-mono text-xs",
+                  isActive
+                    ? "bg-brand-100 text-brand-700 dark:bg-brand-900/60 dark:text-brand-200"
+                    : "hover:text-brand-700 dark:hover:text-brand-300 text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800",
+                ].join(" ")
+              }
             >
               {pkg.name}
-            </Link>
+            </NavLink>
           ))}
         </nav>
       </aside>
