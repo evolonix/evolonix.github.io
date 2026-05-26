@@ -10,6 +10,7 @@ type FieldName = "name" | "email" | "message";
 type Errors = Partial<Record<FieldName, string>>;
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const CONTACT_EMAIL = "hello@evolonix.com";
 
 export default function Contact() {
   useDocumentTitle("Contact");
@@ -41,10 +42,10 @@ export default function Contact() {
   }
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
     const form = e.currentTarget;
     const next = validate(form);
     if (Object.keys(next).length > 0) {
-      e.preventDefault();
       setErrors(next);
       setStatus("idle");
       // Defer focus until after the live region has rendered.
@@ -52,7 +53,26 @@ export default function Contact() {
       return;
     }
     setErrors({});
+
+    // Build the mailto: link in JS rather than via the form's `action`, so
+    // the form has no insecure (non-HTTPS) submission target. A mailto:
+    // action is what makes browsers disable autofill and warn "this form is
+    // not secure" on HTTPS pages.
+    const data = new FormData(form);
+    const name = String(data.get("name") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+    const company = String(data.get("company") ?? "").trim();
+    const message = String(data.get("message") ?? "").trim();
+    const lines = [`Name: ${name}`, `Email: ${email}`];
+    if (company) lines.push(`Company: ${company}`);
+    lines.push("", message);
+    const href =
+      `mailto:${CONTACT_EMAIL}` +
+      `?subject=${encodeURIComponent(`Website inquiry from ${name}`)}` +
+      `&body=${encodeURIComponent(lines.join("\n"))}`;
+
     setStatus("sent");
+    window.location.href = href;
   }
 
   const errorCount = Object.keys(errors).length;
@@ -72,9 +92,6 @@ export default function Contact() {
       <div className="mt-12 grid gap-10 lg:grid-cols-[3fr_2fr]">
         <form
           ref={formRef}
-          action="mailto:hello@evolonix.com"
-          method="post"
-          encType="text/plain"
           noValidate
           onSubmit={handleSubmit}
           className="relative space-y-4 overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800"
@@ -146,8 +163,8 @@ export default function Contact() {
         <aside className="space-y-6 text-sm">
           <InfoBlock
             label="Email"
-            value="hello@evolonix.com"
-            href="mailto:hello@evolonix.com"
+            value={CONTACT_EMAIL}
+            href={`mailto:${CONTACT_EMAIL}`}
           />
           <InfoBlock
             label="Office"
