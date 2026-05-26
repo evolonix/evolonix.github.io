@@ -44,8 +44,8 @@ export default function PackagesIndex() {
               <p className="mt-3 max-w-2xl text-sm text-zinc-600 dark:text-zinc-400">
                 {pkg.body}
               </p>
-              <pre className="mt-5 w-fit max-w-full overflow-x-auto rounded-lg bg-zinc-950 px-4 py-2 font-mono text-xs text-zinc-100 ring-1 ring-zinc-800">
-                <code>{pkg.install}</code>
+              <pre className="mt-5 w-fit max-w-full overflow-x-auto rounded-lg bg-zinc-950 py-2 font-mono text-xs text-zinc-100 ring-1 ring-zinc-800">
+                <code className="inline-block px-4">{pkg.install}</code>
               </pre>
               <p className="text-brand-700 dark:text-brand-300 mt-5 flex w-fit items-center gap-1 text-sm font-medium transition-all group-hover:gap-2">
                 Explore the demo

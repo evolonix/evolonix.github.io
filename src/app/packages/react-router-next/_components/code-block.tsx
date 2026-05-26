@@ -9,7 +9,7 @@ interface CodeBlockProps {
 
 export function CodeBlock({ code, lang = "tsx", className }: CodeBlockProps) {
   const wrapperClass = [
-    "shiki-block overflow-x-auto rounded-xl p-4 font-mono text-xs leading-relaxed ring-1 ring-zinc-200 dark:ring-zinc-800",
+    "shiki-block overflow-x-auto rounded-xl py-4 font-mono text-xs leading-relaxed ring-1 ring-zinc-200 dark:ring-zinc-800",
     className ?? "",
   ].join(" ");
   const label = `Code example, ${lang.toUpperCase()}`;

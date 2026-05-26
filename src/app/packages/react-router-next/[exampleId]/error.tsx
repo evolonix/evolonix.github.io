@@ -17,9 +17,11 @@ export default function ExampleError() {
       <pre
         tabIndex={0}
         aria-label="Error details"
-        className="mt-4 overflow-x-auto rounded-lg bg-zinc-950 p-4 font-mono text-xs text-zinc-100 ring-1 ring-zinc-800"
+        className="mt-4 overflow-x-auto rounded-lg bg-zinc-950 py-4 font-mono text-xs text-zinc-100 ring-1 ring-zinc-800"
       >
-        <code>{message}</code>
+        <code className="box-border inline-block min-w-full px-4">
+          {message}
+        </code>
       </pre>
       <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400">
         This boundary lives at{" "}
