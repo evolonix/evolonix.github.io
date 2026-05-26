@@ -1,4 +1,6 @@
 import { Link } from "react-router";
+import { Card } from "./_components/card";
+import { Eyebrow } from "./_components/eyebrow";
 import { useDocumentTitle } from "./_lib/use-document-title";
 
 const HIGHLIGHTS = [
@@ -32,6 +34,9 @@ export default function Home() {
   useDocumentTitle("Home");
   return (
     <>
+      {/* Hero uses bespoke styling for the brand-gradient surface: pill CTAs
+          intentionally diverge from the Button component (white-on-brand and
+          translucent-outline-on-brand are surface-specific patterns). */}
       <section className="from-brand-600 to-brand-800 relative isolate overflow-hidden bg-linear-to-br via-fuchsia-700 text-white">
         <div
           aria-hidden
@@ -73,31 +78,19 @@ export default function Home() {
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {HIGHLIGHTS.map((card) => (
-            <Link
-              key={card.href}
-              to={card.href}
-              className="group relative block overflow-hidden rounded-2xl bg-white ring-1 ring-zinc-200 transition hover:-translate-y-0.5 hover:shadow-lg dark:bg-zinc-900 dark:ring-zinc-800"
-            >
-              <div
-                aria-hidden
-                className={`absolute inset-x-0 top-0 h-1 bg-linear-to-r ${card.tone}`}
-              />
-              <div className="p-6">
-                <p className="text-brand-700 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
-                  {card.eyebrow}
-                </p>
-                <h2 className="mt-3 text-xl font-semibold text-zinc-900 dark:text-zinc-50">
-                  {card.title}
-                </h2>
-                <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">
-                  {card.body}
-                </p>
-                <p className="text-brand-700 dark:text-brand-300 mt-5 flex w-fit items-center gap-1 text-sm font-medium transition-all group-hover:gap-2">
-                  {card.cta}
-                  <span aria-hidden>→</span>
-                </p>
-              </div>
-            </Link>
+            <Card key={card.href} to={card.href} interactive accent={card.tone}>
+              <Eyebrow>{card.eyebrow}</Eyebrow>
+              <h2 className="mt-3 text-xl font-semibold text-zinc-900 dark:text-zinc-50">
+                {card.title}
+              </h2>
+              <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">
+                {card.body}
+              </p>
+              <p className="text-brand-700 dark:text-brand-300 mt-5 flex w-fit items-center gap-1 text-sm font-medium transition-all group-hover:gap-2">
+                {card.cta}
+                <span aria-hidden>→</span>
+              </p>
+            </Card>
           ))}
         </div>
       </section>

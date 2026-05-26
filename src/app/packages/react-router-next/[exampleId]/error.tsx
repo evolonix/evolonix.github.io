@@ -1,5 +1,7 @@
 import { useRouteError } from "@evolonix/react-router-next";
-import { Link } from "react-router";
+import { Alert } from "../../../_components/alert";
+import { Button } from "../../../_components/button";
+import { Eyebrow } from "../../../_components/eyebrow";
 import { useDocumentTitle } from "../../../_lib/use-document-title";
 
 export default function ExampleError() {
@@ -7,13 +9,8 @@ export default function ExampleError() {
   const message = error instanceof Error ? error.message : String(error);
   useDocumentTitle("Example error");
   return (
-    <div
-      role="alert"
-      className="rounded-2xl bg-white p-8 ring-1 ring-rose-200 dark:bg-zinc-900 dark:ring-rose-900/50"
-    >
-      <p className="text-xs font-semibold tracking-[0.18em] text-rose-600 uppercase dark:text-rose-300">
-        Error
-      </p>
+    <Alert role="alert" intent="error" density="section">
+      <Eyebrow tone="danger">Error</Eyebrow>
       <h1 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-50">
         Something went wrong rendering this example.
       </h1>
@@ -29,12 +26,9 @@ export default function ExampleError() {
         <code>src/app/packages/react-router-next/[exampleId]/error.tsx</code>{" "}
         and is scoped to the example detail route.
       </p>
-      <Link
-        to="/packages/react-router-next"
-        className="bg-brand-600 hover:bg-brand-700 mt-5 inline-block rounded-full px-4 py-2 text-sm font-medium text-white"
-      >
+      <Button to="/packages/react-router-next" size="sm" className="mt-5">
         Back to examples
-      </Link>
-    </div>
+      </Button>
+    </Alert>
   );
 }

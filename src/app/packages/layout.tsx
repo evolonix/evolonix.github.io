@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from "react-router";
+import { Eyebrow } from "../_components/eyebrow";
 
 const PACKAGES = [
   {
@@ -12,9 +13,7 @@ export default function PackagesLayout() {
   return (
     <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 lg:grid-cols-[16rem_1fr]">
       <aside className="lg:sticky lg:top-20 lg:self-start">
-        <p className="text-brand-700 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
-          Packages
-        </p>
+        <Eyebrow>Packages</Eyebrow>
         <h2 className="mt-2 text-lg font-semibold text-zinc-900 dark:text-zinc-50">
           Evolonix open source
         </h2>

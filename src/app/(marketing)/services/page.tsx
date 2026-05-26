@@ -1,3 +1,7 @@
+import { Card } from "../../_components/card";
+import { Eyebrow } from "../../_components/eyebrow";
+import { useDocumentTitle } from "../../_lib/use-document-title";
+
 const SERVICES = [
   {
     title: "Product Engineering",
@@ -29,53 +33,37 @@ const SERVICES = [
   },
 ];
 
-import { useDocumentTitle } from "../../_lib/use-document-title";
-
 export default function Services() {
   useDocumentTitle("Services");
   return (
-    <>
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <p className="text-brand-700 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
-          Services
-        </p>
-        <h1 className="mt-3 text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-zinc-50">
-          Four ways we work with teams.
-        </h1>
-        <p className="mt-4 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400">
-          We tailor the shape of each engagement — embedded, advisory, or
-          fixed-scope — to the moment your team is in. The outcomes are the
-          point.
-        </p>
+    <section className="mx-auto max-w-6xl px-6 py-20">
+      <Eyebrow>Services</Eyebrow>
+      <h1 className="mt-3 text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-zinc-50">
+        Four ways we work with teams.
+      </h1>
+      <p className="mt-4 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400">
+        We tailor the shape of each engagement — embedded, advisory, or
+        fixed-scope — to the moment your team is in. The outcomes are the point.
+      </p>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
-          {SERVICES.map((s) => (
-            <article
-              key={s.title}
-              className="relative overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800"
+      <div className="mt-12 grid gap-6 sm:grid-cols-2">
+        {SERVICES.map((s) => (
+          <Card key={s.title} accent={s.accent}>
+            <Eyebrow>{s.eyebrow}</Eyebrow>
+            <h2 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-50">
+              {s.title}
+            </h2>
+            <p
+              className={`mt-2 bg-linear-to-r ${s.accent} bg-clip-text text-sm font-medium text-transparent`}
             >
-              <div
-                aria-hidden
-                className={`absolute inset-x-0 top-0 h-1 bg-linear-to-r ${s.accent}`}
-              />
-              <p className="text-brand-700 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
-                {s.eyebrow}
-              </p>
-              <h2 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-50">
-                {s.title}
-              </h2>
-              <p
-                className={`mt-2 bg-linear-to-r ${s.accent} bg-clip-text text-sm font-medium text-transparent`}
-              >
-                {s.outcome}
-              </p>
-              <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400">
-                {s.body}
-              </p>
-            </article>
-          ))}
-        </div>
-      </section>
-    </>
+              {s.outcome}
+            </p>
+            <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400">
+              {s.body}
+            </p>
+          </Card>
+        ))}
+      </div>
+    </section>
   );
 }

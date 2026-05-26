@@ -1,3 +1,7 @@
+import { Card } from "../../_components/card";
+import { Eyebrow } from "../../_components/eyebrow";
+import { useDocumentTitle } from "../../_lib/use-document-title";
+
 const VALUES = [
   {
     title: "Craft",
@@ -22,16 +26,12 @@ const MILESTONES = [
   { year: "2025", note: "Published react-router-next; hello, you." },
 ];
 
-import { useDocumentTitle } from "../../_lib/use-document-title";
-
 export default function About() {
   useDocumentTitle("About");
   return (
     <>
       <section className="mx-auto max-w-6xl px-6 py-20">
-        <p className="text-brand-700 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
-          About
-        </p>
+        <Eyebrow>About</Eyebrow>
         <h1 className="mt-3 text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-zinc-50">
           A small studio for serious frontend work.
         </h1>
@@ -78,29 +78,20 @@ export default function About() {
 
       <section className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/40">
         <div className="mx-auto max-w-6xl px-6 py-20">
-          <p className="text-brand-700 dark:text-brand-300 text-xs font-semibold tracking-[0.18em] uppercase">
-            Values
-          </p>
+          <Eyebrow>Values</Eyebrow>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-50">
             What we won&apos;t compromise on.
           </h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
             {VALUES.map((v) => (
-              <div
-                key={v.title}
-                className="relative overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800"
-              >
-                <div
-                  aria-hidden
-                  className={`absolute inset-x-0 top-0 h-1 bg-linear-to-r ${v.tone}`}
-                />
+              <Card key={v.title} accent={v.tone}>
                 <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
                   {v.title}
                 </h3>
                 <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
                   {v.body}
                 </p>
-              </div>
+              </Card>
             ))}
           </div>
         </div>

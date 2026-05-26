@@ -1,19 +1,16 @@
-import { Link } from "react-router";
 import { generate } from "virtual:react-router-next/packages/react-router-next/[exampleId]";
+import { Card } from "../../../_components/card";
 import type { Example } from "../_lib/use-examples";
 
 export function ExampleCard({ example }: { example: Example }) {
   return (
-    <Link
+    <Card
       to={generate({ exampleId: example.id })}
       viewTransition
       preventScrollReset
-      className="group relative block overflow-hidden rounded-2xl bg-white p-5 ring-1 ring-zinc-200 transition hover:-translate-y-0.5 hover:shadow-lg dark:bg-zinc-900 dark:ring-zinc-800"
+      interactive
+      accent={example.tone}
     >
-      <div
-        aria-hidden
-        className={`absolute inset-x-0 top-0 h-1 bg-linear-to-r ${example.tone}`}
-      />
       <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-50">
         {example.title}
       </h3>
@@ -24,6 +21,6 @@ export function ExampleCard({ example }: { example: Example }) {
         Open example
         <span aria-hidden>→</span>
       </p>
-    </Link>
+    </Card>
   );
 }

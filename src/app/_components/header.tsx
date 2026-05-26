@@ -43,7 +43,7 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-zinc-200/70 bg-white/80 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/80">
+    <header className="sticky top-0 z-40 border-b border-zinc-200 bg-white/80 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/80">
       <div className="mx-auto flex max-w-6xl items-center gap-3 px-6 py-3">
         <button
           type="button"
@@ -84,7 +84,7 @@ export function Header() {
         ref={dialogRef}
         id="mobile-nav"
         aria-label="Mobile menu"
-        className="fixed top-0 right-0 left-0 m-0 w-full max-w-full border-b border-zinc-200/70 bg-white p-0 backdrop:bg-zinc-900/40 backdrop:backdrop-blur-sm sm:hidden dark:border-zinc-800/70 dark:bg-zinc-950"
+        className="fixed top-0 right-0 left-0 m-0 w-full max-w-full border-b border-zinc-200 bg-white p-0 backdrop:bg-zinc-900/40 backdrop:backdrop-blur-sm sm:hidden dark:border-zinc-800 dark:bg-zinc-950"
       >
         <ul className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-3">
           {NAV_ITEMS.map((item) => (

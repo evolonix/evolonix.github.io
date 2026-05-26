@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import type { RouteProps } from "virtual:react-router-next/packages/react-router-next/[exampleId]";
+import { Card } from "../../../_components/card";
 import { useDocumentTitle } from "../../../_lib/use-document-title";
 import { CodeBlock } from "../_components/code-block";
 import { useExample } from "../_lib/use-examples";
@@ -17,11 +18,7 @@ export default function ExamplePage({ params }: RouteProps) {
         <span aria-hidden>←</span>
         All examples
       </Link>
-      <div className="relative mt-4 overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800">
-        <div
-          aria-hidden
-          className={`absolute inset-x-0 top-0 h-1 bg-linear-to-r ${example.tone}`}
-        />
+      <Card accent={example.tone} className="mt-4">
         <p className="text-brand-700 dark:text-brand-300 font-mono text-xs tracking-[0.18em] uppercase">
           Example
         </p>
@@ -35,7 +32,7 @@ export default function ExamplePage({ params }: RouteProps) {
           {example.detail}
         </p>
         <CodeBlock className="mt-6" code={example.code} lang={example.lang} />
-      </div>
+      </Card>
       <p className="mt-6 text-xs text-zinc-600 dark:text-zinc-400">
         You are viewing the full-page route at{" "}
         <code>/packages/react-router-next/{example.id}</code>. Soft-navigating
