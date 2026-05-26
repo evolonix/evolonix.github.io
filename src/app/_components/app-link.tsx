@@ -5,6 +5,8 @@ type Variant = "inline" | "external";
 
 interface CommonProps {
   variant?: Variant;
+  /** Optional leading brand icon, rendered aria-hidden before the label. */
+  icon?: ReactNode;
   className?: string;
   children: ReactNode;
 }
@@ -30,8 +32,23 @@ const VARIANT: Record<Variant, string> = {
 };
 
 export function AppLink(props: AppLinkProps) {
-  const { variant = "inline", className, children, ...rest } = props;
-  const merged = [BASE, VARIANT[variant], className].filter(Boolean).join(" ");
+  const { variant = "inline", icon, className, children, ...rest } = props;
+  const decoration = VARIANT[variant];
+  const merged = icon
+    ? [BASE, "inline-flex items-center gap-1.5", className]
+        .filter(Boolean)
+        .join(" ")
+    : [BASE, decoration, className].filter(Boolean).join(" ");
+  const content = icon ? (
+    <>
+      <span aria-hidden className="shrink-0">
+        {icon}
+      </span>
+      <span className={decoration}>{children}</span>
+    </>
+  ) : (
+    children
+  );
 
   if ("to" in rest && rest.to !== undefined) {
     const { to, ...linkRest } = rest as Omit<
@@ -40,7 +57,7 @@ export function AppLink(props: AppLinkProps) {
     >;
     return (
       <Link to={to} {...linkRest} className={merged}>
-        {children}
+        {content}
       </Link>
     );
   }
@@ -51,7 +68,7 @@ export function AppLink(props: AppLinkProps) {
       : {};
   return (
     <a {...externalAttrs} {...anchorRest} className={merged}>
-      {children}
+      {content}
     </a>
   );
 }

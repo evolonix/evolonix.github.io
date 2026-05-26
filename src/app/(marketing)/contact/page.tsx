@@ -4,6 +4,7 @@ import { AppLink } from "../../_components/app-link";
 import { Button } from "../../_components/button";
 import { Eyebrow } from "../../_components/eyebrow";
 import { Field, FieldTextarea } from "../../_components/field";
+import { BlueskyIcon, GitHubIcon } from "../../_components/icons";
 import { useDocumentTitle } from "../../_lib/use-document-title";
 
 type FieldName = "name" | "email" | "message";
@@ -180,12 +181,17 @@ export default function Contact() {
             label="Elsewhere"
             value={
               <span className="flex flex-wrap gap-3">
-                <AppLink href="https://github.com/evolonix" variant="external">
+                <AppLink
+                  href="https://github.com/evolonix"
+                  variant="external"
+                  icon={<GitHubIcon />}
+                >
                   GitHub
                 </AppLink>
                 <AppLink
                   href="https://bsky.app/profile/evolonix.com"
                   variant="external"
+                  icon={<BlueskyIcon />}
                 >
                   Bluesky
                 </AppLink>

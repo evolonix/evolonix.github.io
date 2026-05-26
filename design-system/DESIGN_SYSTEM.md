@@ -314,9 +314,9 @@ Polymorphic: renders `<Link>` when `to` is supplied, otherwise `<div>`.
 
 Polymorphic: passes-through to `<Link>` when `to` is supplied, otherwise renders `<a>`.
 
-**Props:** `variant: "inline" | "external"` · `to?` for internal Link OR `href?` for `<a>` (mutually exclusive) · standard Link / anchor props.
+**Props:** `variant: "inline" | "external"` · `icon?: ReactNode` (optional leading brand icon) · `to?` for internal Link OR `href?` for `<a>` (mutually exclusive) · standard Link / anchor props.
 
-**Behavior:** when `variant="external"`, automatically sets `target="_blank"` and `rel="noopener noreferrer"`.
+**Behavior:** when `variant="external"`, automatically sets `target="_blank"` and `rel="noopener noreferrer"`. When `icon` is supplied, the link becomes `inline-flex items-center gap-1.5`; the icon renders `aria-hidden` before the label, and the variant's underline decoration moves to a `<span>` around the label so the icon is never underlined. Used for the GitHub / npm / Bluesky links in the footer and contact aside — see [icons.tsx](../src/app/_components/icons.tsx) (`GitHubIcon`, `BlueskyIcon`; the showcase app additionally has `NpmIcon`).
 
 **Tailwind recipe:** `text-brand-700 dark:text-brand-300` + variant: `inline` → `hover:underline underline-offset-2`; `external` → `underline underline-offset-2 decoration-1 hover:no-underline`.
 
