@@ -6,17 +6,17 @@ const VALUES = [
   {
     title: "Craft",
     body: "We sweat the details others skip — accessibility, performance, the seams where teams hand off work. The polish is the product.",
-    tone: "from-emerald-500/80 to-emerald-400/60",
+    tone: "from-emerald-500 to-emerald-400",
   },
   {
     title: "Clarity",
     body: "We write code, docs, and proposals that the next engineer can read on their first day. Surprises belong in the changelog, not the codebase.",
-    tone: "from-sky-500/80 to-sky-400/60",
+    tone: "from-blue-500 to-sky-400",
   },
   {
     title: "Compounding",
     body: "Each engagement leaves a team faster than we found it — better patterns, better tests, better tooling. The wins should outlast us.",
-    tone: "from-fuchsia-500/80 to-fuchsia-400/60",
+    tone: "from-fuchsia-500 to-fuchsia-400",
   },
 ];
 

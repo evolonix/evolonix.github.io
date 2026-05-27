@@ -14,7 +14,7 @@ const SERVICES = [
     title: "Platform & DX",
     outcome: "Make the right path the easy path.",
     body: "Build pipelines, monorepos, component infra, test ergonomics. We invest where every team feels it — the inner loop.",
-    accent: "from-sky-500 to-sky-400",
+    accent: "from-blue-500 to-sky-400",
     eyebrow: "Foundations",
   },
   {
