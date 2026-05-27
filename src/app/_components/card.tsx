@@ -43,7 +43,7 @@ export function Card(props: CardProps) {
       "className" | "children"
     >;
     return (
-      <Link to={to} {...linkRest} className={merged}>
+      <Link to={to} viewTransition {...linkRest} className={merged}>
         {strip}
         {children}
       </Link>

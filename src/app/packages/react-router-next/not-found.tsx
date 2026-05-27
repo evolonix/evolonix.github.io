@@ -19,6 +19,7 @@ export default function ExampleNotFound() {
       </p>
       <Link
         to="/packages/react-router-next"
+        viewTransition
         className="bg-brand-600 hover:bg-brand-700 mt-5 inline-block rounded-full px-4 py-2 text-sm font-medium text-white"
       >
         Back to examples

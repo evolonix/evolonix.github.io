@@ -56,7 +56,7 @@ export function AppLink(props: AppLinkProps) {
       "className" | "children"
     >;
     return (
-      <Link to={to} {...linkRest} className={merged}>
+      <Link to={to} viewTransition {...linkRest} className={merged}>
         {content}
       </Link>
     );

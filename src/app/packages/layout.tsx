@@ -21,6 +21,7 @@ export default function PackagesLayout() {
           <NavLink
             to="/packages"
             end
+            viewTransition
             className={({ isActive }) =>
               [
                 "block rounded-lg px-3 py-2",
@@ -36,6 +37,7 @@ export default function PackagesLayout() {
             <NavLink
               key={pkg.href}
               to={pkg.href}
+              viewTransition
               className={({ isActive }) =>
                 [
                   "block rounded-lg px-3 py-2 font-mono text-xs",

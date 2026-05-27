@@ -80,7 +80,7 @@ export function Button(props: ButtonProps) {
       "className" | "children"
     >;
     return (
-      <Link to={to} {...linkRest} className={merged}>
+      <Link to={to} viewTransition {...linkRest} className={merged}>
         {children}
       </Link>
     );

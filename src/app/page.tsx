@@ -61,12 +61,14 @@ export default function Home() {
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
               to="/services"
+              viewTransition
               className="text-brand-700 rounded-full bg-white px-5 py-2.5 text-sm font-semibold shadow-sm hover:bg-zinc-100"
             >
               Explore services
             </Link>
             <Link
               to="/packages"
+              viewTransition
               className="rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-white/30 ring-inset hover:bg-white/20"
             >
               Open source

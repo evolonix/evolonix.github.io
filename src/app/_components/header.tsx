@@ -61,6 +61,7 @@ export function Header() {
 
         <Link
           to="/"
+          viewTransition
           className="flex items-center gap-2 text-base font-semibold tracking-tight"
         >
           <img src="/logo.svg" alt="" aria-hidden="true" className="h-7 w-7" />
@@ -95,6 +96,7 @@ export function Header() {
               <RRNavLink
                 to={item.to}
                 end={item.end}
+                viewTransition
                 className={({ isActive }) =>
                   [
                     "block rounded-lg px-3 py-2 text-base font-medium transition-colors",
