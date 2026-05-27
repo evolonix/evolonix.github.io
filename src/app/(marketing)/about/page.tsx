@@ -21,9 +21,9 @@ const VALUES = [
 ];
 
 const MILESTONES = [
-  { year: "2019", note: "Founded as a one-person shop in Raleigh." },
-  { year: "2021", note: "First open-source release." },
-  { year: "2025", note: "Published react-router-next; hello, you." },
+  { year: "2009", note: "Founded as a one-person shop." },
+  { year: "2012", note: "First open-source release." },
+  { year: "2026", note: "Published react-router-next; hello, you." },
 ];
 
 export default function About() {
