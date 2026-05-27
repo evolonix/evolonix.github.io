@@ -1,5 +1,6 @@
 import { useEffect, useId, useRef, type ReactNode } from "react";
 import { useNavigate } from "react-router";
+import { useBodyScrollLock } from "../../../_lib/use-body-scroll-lock";
 
 interface DialogProps {
   title: string;
@@ -18,6 +19,10 @@ export function Dialog({
   const navigate = useNavigate();
   const dialogRef = useRef<HTMLDialogElement>(null);
   const titleId = useId();
+
+  // The Dialog is only mounted while the intercepting modal route is active,
+  // so the page behind it stays scroll-locked for the dialog's lifetime.
+  useBodyScrollLock(true);
 
   useEffect(() => {
     const el = dialogRef.current;

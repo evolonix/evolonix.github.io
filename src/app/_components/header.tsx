@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink as RRNavLink, useLocation } from "react-router";
+import { useBodyScrollLock } from "../_lib/use-body-scroll-lock";
 import { NavLink } from "./nav-link";
 import { ThemeToggle } from "./theme-toggle";
 
@@ -21,6 +22,8 @@ export function Header() {
     setLastPath(location.pathname);
     setOpen(false);
   }
+
+  useBodyScrollLock(open);
 
   useEffect(() => {
     const el = dialogRef.current;
