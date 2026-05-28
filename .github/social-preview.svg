@@ -38,7 +38,7 @@
   </g>
 
   <!-- Brand mark + wordmark — paired as on the About page (logo at 1em, gap, Evolonix in Manrope) -->
-  <g transform="translate(278, 200)">
+  <g transform="translate(230, 200)">
     <!-- Logo: source viewBox 64×64, scaled 2.5× to 160×160 -->
     <g transform="scale(2.5)">
       <rect y="0" width="64" height="12.4" rx="6.2" fill="#a855f7" />
