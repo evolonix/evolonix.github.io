@@ -20,12 +20,6 @@ const VALUES = [
   },
 ];
 
-const MILESTONES = [
-  { year: "2009", note: "Founded as a one-person shop." },
-  { year: "2012", note: "First open-source release." },
-  { year: "2026", note: "Published react-router-next; hello, you." },
-];
-
 export default function About() {
   useDocumentTitle("About");
   return (
@@ -57,21 +51,17 @@ export default function About() {
             </p>
           </div>
           <aside className="rounded-2xl bg-zinc-50 p-6 ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800">
-            <h2 className="text-brand-700 dark:text-brand-300 text-sm font-semibold tracking-[0.18em] uppercase">
-              Milestones
-            </h2>
-            <ol className="mt-4 space-y-3 text-sm">
-              {MILESTONES.map((m) => (
-                <li key={m.year} className="flex gap-3">
-                  <span className="w-12 shrink-0 font-mono font-semibold text-zinc-900 dark:text-zinc-100">
-                    {m.year}
-                  </span>
-                  <span className="text-zinc-600 dark:text-zinc-400">
-                    {m.note}
-                  </span>
-                </li>
-              ))}
-            </ol>
+            <img
+              src="/logo.svg"
+              alt=""
+              aria-hidden="true"
+              className="h-40 w-40 sm:h-48 sm:w-48"
+            />
+            <div className="mt-6 space-y-1 border-t border-zinc-200 pt-6 text-base font-medium tracking-tight text-zinc-900 dark:border-zinc-800 dark:text-zinc-50">
+              <p>Small studio.</p>
+              <p>Senior hands.</p>
+              <p>Quiet output.</p>
+            </div>
           </aside>
         </div>
       </section>
