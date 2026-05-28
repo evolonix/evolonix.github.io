@@ -1,4 +1,4 @@
-import { useRef, useState, type FormEvent } from "react";
+import { useRef, useState, type FocusEvent, type FormEvent } from "react";
 import { Alert } from "../../_components/alert";
 import { AppLink } from "../../_components/app-link";
 import { Button } from "../../_components/button";
@@ -19,17 +19,45 @@ export default function Contact() {
   const [status, setStatus] = useState<"idle" | "sent">("idle");
   const formRef = useRef<HTMLFormElement>(null);
 
+  function validateField(value: string, field: FieldName): string | undefined {
+    const v = value.trim();
+    switch (field) {
+      case "name":
+        if (!v) return "Your name is required.";
+        return undefined;
+      case "email":
+        if (!v) return "An email address is required.";
+        if (!EMAIL_RE.test(v)) return "Enter a valid email address.";
+        return undefined;
+      case "message":
+        if (!v) return "A message is required.";
+        return undefined;
+    }
+  }
+
   function validate(form: HTMLFormElement): Errors {
     const data = new FormData(form);
     const next: Errors = {};
-    const name = String(data.get("name") ?? "").trim();
-    const email = String(data.get("email") ?? "").trim();
-    const message = String(data.get("message") ?? "").trim();
-    if (!name) next.name = "Your name is required.";
-    if (!email) next.email = "An email address is required.";
-    else if (!EMAIL_RE.test(email)) next.email = "Enter a valid email address.";
-    if (!message) next.message = "A message is required.";
+    for (const field of ["name", "email", "message"] as const) {
+      const message = validateField(String(data.get(field) ?? ""), field);
+      if (message) next[field] = message;
+    }
     return next;
+  }
+
+  function handleFieldBlur(
+    e: FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) {
+    const field = e.target.name as FieldName;
+    // Only revalidate fields that were flagged invalid on the last attempt.
+    if (!errors[field]) return;
+    const message = validateField(e.target.value, field);
+    setErrors((prev) => {
+      const next = { ...prev };
+      if (message) next[field] = message;
+      else delete next[field];
+      return next;
+    });
   }
 
   function focusFirstError(next: Errors) {
@@ -137,6 +165,7 @@ export default function Contact() {
               autoComplete="name"
               required
               error={errors.name}
+              onBlur={handleFieldBlur}
             />
             <Field
               label="Email"
@@ -145,6 +174,7 @@ export default function Contact() {
               autoComplete="email"
               required
               error={errors.email}
+              onBlur={handleFieldBlur}
             />
           </div>
           <Field
@@ -158,6 +188,7 @@ export default function Contact() {
             name="message"
             required
             error={errors.message}
+            onBlur={handleFieldBlur}
           />
           <Button type="submit">Send message</Button>
         </form>
