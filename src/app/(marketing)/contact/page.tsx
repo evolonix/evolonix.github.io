@@ -69,10 +69,11 @@ export default function Contact() {
     lines.push("", message);
     const href =
       `mailto:${CONTACT_EMAIL}` +
-      `?subject=${encodeURIComponent(`Website inquiry from ${name}`)}` +
+      `?subject=${encodeURIComponent(`[Evolonix] Inquiry from ${name}`)}` +
       `&body=${encodeURIComponent(lines.join("\n"))}`;
 
     setStatus("sent");
+    form.reset();
     window.location.href = href;
   }
 
