@@ -51,12 +51,15 @@ export default function About() {
             </p>
           </div>
           <aside className="rounded-2xl bg-zinc-50 p-6 ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800">
-            <img
-              src="/logo.svg"
-              alt=""
-              aria-hidden="true"
-              className="h-40 w-40 sm:h-48 sm:w-48"
-            />
+            <div className="flex items-center gap-3 text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl dark:text-zinc-50">
+              <img
+                src="/logo.svg"
+                alt=""
+                aria-hidden="true"
+                className="h-[1em] w-[1em]"
+              />
+              <span>Evolonix</span>
+            </div>
             <div className="mt-6 space-y-1 border-t border-zinc-200 pt-6 text-base font-medium tracking-tight text-zinc-900 dark:border-zinc-800 dark:text-zinc-50">
               <p>Small studio.</p>
               <p>Senior hands.</p>

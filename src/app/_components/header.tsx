@@ -64,7 +64,12 @@ export function Header() {
           viewTransition
           className="flex items-center gap-2 text-base font-semibold tracking-tight"
         >
-          <img src="/logo.svg" alt="" aria-hidden="true" className="h-4 w-4" />
+          <img
+            src="/logo.svg"
+            alt=""
+            aria-hidden="true"
+            className="h-[1em] w-[1em]"
+          />
           <span>Evolonix</span>
         </Link>
 
