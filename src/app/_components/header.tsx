@@ -70,7 +70,7 @@ export function Header() {
             aria-hidden="true"
             className="h-[1em] w-[1em]"
           />
-          <span>Evolonix</span>
+          <span className="font-display font-bold">Evolonix</span>
         </Link>
 
         <nav

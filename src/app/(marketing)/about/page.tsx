@@ -58,7 +58,7 @@ export default function About() {
                 aria-hidden="true"
                 className="h-[1em] w-[1em]"
               />
-              <span>Evolonix</span>
+              <span className="font-display font-bold">Evolonix</span>
             </div>
             <div className="mt-6 space-y-1 border-t border-zinc-200 pt-6 text-base font-medium tracking-tight text-zinc-900 dark:border-zinc-800 dark:text-zinc-50">
               <p>Small studio.</p>
