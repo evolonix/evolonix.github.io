@@ -14,11 +14,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@evolonix/react-router-next": "^3.3.0",
+    "@evolonix/react-router-next": "^3.3.3",
     "@tailwindcss/vite": "^4.3.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-    "react-router": "^7.15.1",
+    "react-router": "^7.16.0",
     "shiki": "^4.1.0",
     "tailwindcss": "^4.3.0"
   },
