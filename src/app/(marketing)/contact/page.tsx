@@ -193,7 +193,10 @@ export default function Contact() {
           <Button type="submit">Send message</Button>
         </form>
 
-        <aside className="space-y-6 text-sm">
+        <aside
+          aria-label="Other ways to reach us"
+          className="space-y-6 text-sm"
+        >
           <InfoBlock
             label="Email"
             value={CONTACT_EMAIL}

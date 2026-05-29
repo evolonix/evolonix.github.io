@@ -50,7 +50,10 @@ export default function About() {
               they&apos;re no longer useful.
             </p>
           </div>
-          <aside className="rounded-2xl bg-zinc-50 p-6 ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800">
+          <aside
+            aria-label="Evolonix at a glance"
+            className="rounded-2xl bg-zinc-50 p-6 ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800"
+          >
             <div className="flex items-center gap-3 text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl dark:text-zinc-50">
               <img
                 src="/logo.svg"
