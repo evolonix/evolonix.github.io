@@ -9,12 +9,20 @@ interface DialogProps {
    * Where to navigate when the dialog closes. Defaults to the showcase root.
    */
   closeTo?: string;
+  /**
+   * When true, show a control that reloads the current URL. Because this dialog
+   * is rendered by an intercepting route, a fresh load bypasses the interceptor
+   * and renders the full-page route instead — handy on mobile / installed PWAs
+   * where there is no browser reload button to escape the modal.
+   */
+  fullScreen?: boolean;
 }
 
 export function Dialog({
   title,
   children,
   closeTo = "/packages/react-router-next",
+  fullScreen = true,
 }: DialogProps) {
   const navigate = useNavigate();
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -57,27 +65,52 @@ export function Dialog({
         >
           {title}
         </h2>
-        <button
-          type="button"
-          autoFocus
-          onClick={() => navigate(closeTo, { preventScrollReset: true })}
-          aria-label="Close dialog"
-          className="inline-flex h-8 w-8 items-center justify-center rounded-full text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            width="18"
-            height="18"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
+        <div className="flex items-center gap-1">
+          {fullScreen && (
+            <button
+              type="button"
+              onClick={() => window.location.reload()}
+              aria-label="Open full screen"
+              title="Open full screen"
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+              </svg>
+            </button>
+          )}
+          <button
+            type="button"
+            autoFocus
+            onClick={() => navigate(closeTo, { preventScrollReset: true })}
+            aria-label="Close dialog"
+            className="inline-flex h-8 w-8 items-center justify-center rounded-full text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
           >
-            <path d="M18 6 6 18M6 6l12 12" />
-          </svg>
-        </button>
+            <svg
+              viewBox="0 0 24 24"
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
       </div>
       <div className="mt-4">{children}</div>
     </dialog>

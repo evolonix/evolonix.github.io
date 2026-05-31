@@ -14,8 +14,8 @@ export default function ExampleModal({ params }: RouteProps) {
       <CodeBlock className="mt-5" code={example.code} lang={example.lang} />
       <p className="mt-4 text-xs text-zinc-600 dark:text-zinc-400">
         Rendered by the <code>(.)[exampleId]</code> interceptor in the{" "}
-        <code>@modal</code> slot. Refresh this page to see the full-page route
-        instead.
+        <code>@modal</code> slot. Use the full-screen control above (or refresh
+        this page) to see the full-page route instead.
       </p>
     </Dialog>
   );

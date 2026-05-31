@@ -88,7 +88,7 @@ export default function DashboardLayout({
   {
     id: "intercepting-routes",
     title: "Intercepting routes (.)",
-    blurb: "Modals that survive refresh and back/forward.",
+    blurb: "Modal on soft-nav, full page on refresh or deep link.",
     detail:
       "An interceptor folder named (.) (or (..) or (...)) renders its page.tsx on soft-navigation (PUSH/REPLACE), while a hard load or POP renders the original target page. Pair with a @modal slot so the underlying page stays mounted behind the dialog.",
     tone: "from-amber-500 to-orange-400",

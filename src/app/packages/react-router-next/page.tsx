@@ -40,9 +40,9 @@ export default function ReactRouterNextPage() {
           Conventions, live
         </h2>
         <p className="mt-2 max-w-2xl text-zinc-600 dark:text-zinc-400">
-          Click any card to open it as a modal. Refresh the page or hit back —
-          the same URL renders as a full page. That&apos;s an intercepting route
-          inside a parallel slot, all wired up via the file conventions below.
+          Click any card to open it as a modal. Refresh the page — the same URL
+          renders as a full page. That&apos;s an intercepting route inside a
+          parallel slot, all wired up via the file conventions below.
         </p>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {examples.map((example) => (
