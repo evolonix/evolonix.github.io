@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Generated reference for splash <link> tags (see scripts/generate-splash.mjs)
+scripts/splash-links.html
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
