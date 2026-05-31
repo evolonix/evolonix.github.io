@@ -20,8 +20,29 @@ import "./index.css";
   }
 })();
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <AppRouter />
-  </StrictMode>,
-);
+function renderApp() {
+  createRoot(document.getElementById("root")!).render(
+    <StrictMode>
+      <AppRouter />
+    </StrictMode>,
+  );
+}
+
+// When running as an installed PWA (standalone), the OS shows a launch/splash
+// screen until the app paints. Hold off the first render briefly so the splash
+// stays visible for a minimum, non-jarring duration instead of flashing past.
+const isStandalone =
+  window.matchMedia("(display-mode: standalone)").matches ||
+  // iOS Safari home-screen apps don't report display-mode; use the legacy flag.
+  (navigator as { standalone?: boolean }).standalone === true;
+
+const MIN_SPLASH_MS = 1500;
+
+if (isStandalone) {
+  // performance.now() is ~time since navigation start, so the splash has
+  // already been visible for that long — only wait out the remainder.
+  const remaining = Math.max(0, MIN_SPLASH_MS - performance.now());
+  window.setTimeout(renderApp, remaining);
+} else {
+  renderApp();
+}
