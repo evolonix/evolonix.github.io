@@ -63,10 +63,17 @@ export default function Contact() {
   function focusFirstError(next: Errors) {
     const order: FieldName[] = ["name", "email", "message"];
     for (const field of order) {
-      if (next[field]) {
-        formRef.current?.querySelector<HTMLElement>(`#${field}`)?.focus();
-        return;
-      }
+      if (!next[field]) continue;
+      const el = formRef.current?.querySelector<HTMLElement>(`#${field}`);
+      if (!el) return;
+      // Focus without the browser's own scroll, then drive the scroll
+      // ourselves: focus()'s implicit scroll is unreliable on mobile (it can
+      // land off-target or leave the field under the sticky header), and it
+      // won't scroll at all when the field is already focused — so we always
+      // center the field explicitly, regardless of focus or prior state.
+      el.focus({ preventScroll: true });
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
     }
   }
 

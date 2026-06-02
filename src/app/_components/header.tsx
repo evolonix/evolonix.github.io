@@ -95,7 +95,7 @@ export function Header() {
         aria-label="Mobile menu"
         className="fixed top-0 right-0 left-0 m-0 w-full max-w-full border-b border-zinc-200 bg-white p-0 backdrop:bg-zinc-900/40 backdrop:backdrop-blur-sm sm:hidden dark:border-zinc-800 dark:bg-zinc-950"
       >
-        <ul className="mx-auto flex max-w-6xl flex-col gap-1 px-4 pt-[max(0.75rem,env(safe-area-inset-top))] pb-3">
+        <ul className="mx-auto flex max-w-6xl flex-col gap-1 pt-[max(0.75rem,env(safe-area-inset-top))] pr-[max(1rem,env(safe-area-inset-right))] pb-3 pl-[max(1rem,env(safe-area-inset-left))]">
           {NAV_ITEMS.map((item) => (
             <li key={item.to}>
               <RRNavLink
