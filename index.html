@@ -195,6 +195,32 @@
       content="Evolonix builds quietly powerful tools for React teams — product engineering, platform & DX, design systems, and open source."
     />
     <title>Evolonix</title>
+    <script>
+      // Resolve the theme before first paint so the initial background below
+      // matches the React app — eliminates the white flicker between the splash
+      // screen being dismissed and the bundled CSS / React mounting.
+      (function () {
+        try {
+          var stored = localStorage.getItem("evolonix-theme");
+          var dark =
+            stored === "dark" ||
+            ((!stored || stored === "system") &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches);
+          if (dark) document.documentElement.classList.add("dark");
+        } catch (_) {}
+      })();
+    </script>
+    <style>
+      /* Initial loading background, mirrored from index.css (bg-white /
+         dark:bg-zinc-950) so the page is painted in the right color before the
+         bundled stylesheet loads. Keep these values in sync with index.css. */
+      html {
+        background-color: #ffffff;
+      }
+      html.dark {
+        background-color: oklch(14.1% 0.005 285.823);
+      }
+    </style>
     <script type="text/javascript">
       // Single Page Apps for GitHub Pages
       // MIT License

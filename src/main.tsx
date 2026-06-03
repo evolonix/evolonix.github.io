@@ -3,22 +3,8 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 
-(function bootstrapTheme() {
-  try {
-    const stored = localStorage.getItem("evolonix-theme");
-    const theme = stored === "light" || stored === "dark" ? stored : "system";
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-    const resolved =
-      theme === "dark" || (theme === "system" && prefersDark)
-        ? "dark"
-        : "light";
-    document.documentElement.classList.toggle("dark", resolved === "dark");
-  } catch {
-    // ignore — defaults to light
-  }
-})();
+// Theme is resolved before first paint by an inline script in index.html so the
+// initial background matches the app — see the bootstrap script there.
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
