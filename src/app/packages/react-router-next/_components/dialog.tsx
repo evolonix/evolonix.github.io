@@ -56,7 +56,7 @@ export function Dialog({
     <dialog
       ref={dialogRef}
       aria-labelledby={titleId}
-      className="m-auto max-h-dvh w-full max-w-none overflow-auto rounded-none bg-white p-6 pt-[max(1.5rem,env(safe-area-inset-top))] pr-[max(1.5rem,env(safe-area-inset-right))] pb-[max(1.5rem,env(safe-area-inset-bottom))] pl-[max(1.5rem,env(safe-area-inset-left))] backdrop:bg-zinc-950/70 backdrop:backdrop-blur-sm max-sm:h-dvh sm:max-h-[85vh] sm:max-w-2xl sm:rounded-2xl sm:shadow-2xl sm:ring-1 sm:ring-zinc-200 dark:bg-zinc-950 sm:dark:bg-zinc-900 sm:dark:ring-zinc-800"
+      className="px-safe-lg pb-safe m-auto max-h-dvh w-full max-w-none overflow-auto rounded-none bg-white pt-[max(1.5rem,env(safe-area-inset-top))] backdrop:bg-zinc-950/70 backdrop:backdrop-blur-sm max-sm:h-dvh sm:max-h-[85vh] sm:max-w-2xl sm:rounded-2xl sm:shadow-2xl sm:ring-1 sm:ring-zinc-200 dark:bg-zinc-950 sm:dark:bg-zinc-900 sm:dark:ring-zinc-800"
     >
       <div className="flex items-start justify-between gap-4">
         <h2
