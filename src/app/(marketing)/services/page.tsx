@@ -36,7 +36,7 @@ const SERVICES = [
 export default function Services() {
   useDocumentTitle("Services");
   return (
-    <section className="mx-auto max-w-6xl px-6 py-20">
+    <section className="px-safe-lg mx-auto max-w-6xl py-20">
       <Eyebrow>Services</Eyebrow>
       <h1 className="mt-3 text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-zinc-50">
         Four ways we work with teams.
@@ -53,9 +53,10 @@ export default function Services() {
             <h2 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-50">
               {s.title}
             </h2>
-            <p
-              className={`mt-2 bg-linear-to-r ${s.accent} bg-clip-text text-sm font-medium text-transparent`}
-            >
+            {/* Solid color rather than a clipped gradient: the gradient stops
+                (e.g. amber/sky/emerald-400) drop below 4.5:1 on white for this
+                meaningful text — WCAG 1.4.3. */}
+            <p className="mt-2 text-sm font-medium text-zinc-700 dark:text-zinc-300">
               {s.outcome}
             </p>
             <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400">

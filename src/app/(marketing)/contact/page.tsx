@@ -109,13 +109,17 @@ export default function Contact() {
 
     setStatus("sent");
     form.reset();
-    window.location.href = href;
+    // Defer the mailto: hand-off so the polite live region below commits
+    // "Opening your email client…" first and is reliably announced (WCAG 4.1.3).
+    window.setTimeout(() => {
+      window.location.href = href;
+    }, 150);
   }
 
   const errorCount = Object.keys(errors).length;
 
   return (
-    <section className="mx-auto max-w-6xl px-6 py-20">
+    <section className="px-safe-lg mx-auto max-w-6xl py-20">
       <Eyebrow>Contact</Eyebrow>
       <h1 className="mt-3 text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-zinc-50">
         Tell us about your team.
@@ -137,10 +141,11 @@ export default function Contact() {
             aria-hidden
             className="from-brand-500 to-accent-500 absolute inset-x-0 top-0 h-1 bg-linear-to-r via-fuchsia-500"
           />
-          <div
-            aria-live="assertive"
-            role={errorCount > 0 ? "alert" : undefined}
-          >
+          {/* Persistent live region — keep it always mounted with a stable
+              aria-live so swapping the inner content is announced reliably.
+              Toggling role/aria-live alongside the content is what AT misses
+              (WCAG 4.1.3 Status Messages). */}
+          <div aria-live="assertive" aria-atomic="true">
             {errorCount > 0 && (
               <Alert
                 intent="error"

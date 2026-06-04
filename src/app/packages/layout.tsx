@@ -11,7 +11,7 @@ const PACKAGES = [
 
 export default function PackagesLayout() {
   return (
-    <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 lg:grid-cols-[16rem_1fr]">
+    <div className="px-safe-lg mx-auto grid max-w-6xl gap-10 py-20 lg:grid-cols-[16rem_1fr]">
       <aside className="lg:sticky lg:top-20 lg:self-start">
         <Eyebrow>Packages</Eyebrow>
         <h2 className="mt-2 text-lg font-semibold text-zinc-900 dark:text-zinc-50">

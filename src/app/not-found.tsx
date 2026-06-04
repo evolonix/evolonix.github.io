@@ -5,7 +5,7 @@ import { useDocumentTitle } from "./_lib/use-document-title";
 export default function NotFound() {
   useDocumentTitle("Page not found");
   return (
-    <div className="mx-auto flex max-w-2xl flex-col items-start gap-6 px-6 py-24">
+    <div className="px-safe-lg mx-auto flex max-w-2xl flex-col items-start gap-6 py-24">
       <Eyebrow>404</Eyebrow>
       <h1 className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
         We couldn&apos;t find that page

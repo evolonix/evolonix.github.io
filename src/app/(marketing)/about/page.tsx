@@ -24,7 +24,7 @@ export default function About() {
   useDocumentTitle("About");
   return (
     <>
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="px-safe-lg mx-auto max-w-6xl py-20">
         <Eyebrow>About</Eyebrow>
         <h1 className="mt-3 text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-zinc-50">
           A small studio for serious frontend work.
@@ -73,7 +73,7 @@ export default function About() {
       </section>
 
       <section className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/40">
-        <div className="mx-auto max-w-6xl px-6 py-20">
+        <div className="px-safe-lg mx-auto max-w-6xl py-20">
           <Eyebrow>Values</Eyebrow>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-50">
             What we won&apos;t compromise on.

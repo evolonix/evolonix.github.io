@@ -46,7 +46,7 @@ export default function Home() {
           aria-hidden
           className="pointer-events-none absolute -bottom-32 -left-24 h-96 w-96 rounded-full bg-black/10 blur-3xl"
         />
-        <div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
+        <div className="px-safe-lg relative mx-auto max-w-6xl py-24 sm:py-32">
           <p className="mb-4 text-xs font-semibold tracking-[0.22em] text-white uppercase">
             Evolonix
           </p>
@@ -69,7 +69,7 @@ export default function Home() {
             <Link
               to="/packages"
               viewTransition
-              className="rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-white/30 ring-inset hover:bg-white/20"
+              className="rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-white/60 ring-inset hover:bg-white/20"
             >
               Open source
             </Link>
@@ -77,7 +77,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="px-safe-lg mx-auto max-w-6xl py-20">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {HIGHLIGHTS.map((card) => (
             <Card key={card.href} to={card.href} interactive accent={card.tone}>

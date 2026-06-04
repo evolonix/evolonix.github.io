@@ -26,6 +26,7 @@ export function Dialog({
 }: DialogProps) {
   const navigate = useNavigate();
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const openerRef = useRef<HTMLElement | null>(null);
   const titleId = useId();
 
   // The Dialog is only mounted while the intercepting modal route is active,
@@ -35,6 +36,10 @@ export function Dialog({
   useEffect(() => {
     const el = dialogRef.current;
     if (!el) return;
+    // Remember the triggering card so focus returns to it on close — this modal
+    // is route-driven and unmounts on navigate, so the native dialog focus
+    // restoration can't be relied on (WCAG 2.4.3 Focus Order).
+    openerRef.current = document.activeElement as HTMLElement | null;
     el.showModal();
     const onCancel = (e: Event) => {
       e.preventDefault();
@@ -49,12 +54,20 @@ export function Dialog({
       el.removeEventListener("cancel", onCancel);
       el.removeEventListener("click", onClick);
       if (el.open) el.close();
+      // Restore focus to the trigger for a11y, but `preventScroll` so closing
+      // the dialog never scrolls the page back to it — the close navigation
+      // already keeps the scroll position via `preventScrollReset`.
+      const opener = openerRef.current;
+      if (opener && document.contains(opener)) {
+        opener.focus({ preventScroll: true });
+      }
     };
   }, [navigate, closeTo]);
 
   return (
     <dialog
       ref={dialogRef}
+      aria-modal="true"
       aria-labelledby={titleId}
       className="px-safe-lg pb-safe m-auto max-h-dvh w-full max-w-none overflow-auto rounded-none bg-white pt-[max(1.5rem,env(safe-area-inset-top))] backdrop:bg-zinc-950/70 backdrop:backdrop-blur-sm max-sm:h-dvh sm:max-h-[85vh] sm:max-w-2xl sm:rounded-2xl sm:shadow-2xl sm:ring-1 sm:ring-zinc-200 dark:bg-zinc-950 sm:dark:bg-zinc-900 sm:dark:ring-zinc-800"
     >

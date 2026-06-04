@@ -14,11 +14,7 @@ export default function RootLayout() {
       </a>
       <div className="flex min-h-full flex-col">
         <Header />
-        <main
-          id="main-content"
-          tabIndex={-1}
-          className="flex-1 focus:outline-none"
-        >
+        <main id="main-content" tabIndex={-1} className="flex-1">
           <Outlet />
         </main>
         <Footer />

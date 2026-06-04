@@ -36,7 +36,7 @@ function RequiredMark() {
     <>
       <span
         aria-hidden="true"
-        className="ml-0.5 text-rose-600 dark:text-rose-300"
+        className="ml-0.5 text-rose-700 dark:text-rose-300"
       >
         *
       </span>
@@ -67,7 +67,7 @@ function FieldLabel({
 
 function FieldError({ id, message }: { id: string; message: string }) {
   return (
-    <p id={id} className="mt-1 text-sm text-rose-600 dark:text-rose-300">
+    <p id={id} className="mt-1 text-sm text-rose-700 dark:text-rose-300">
       {message}
     </p>
   );
@@ -88,6 +88,11 @@ export function Field({
   ...rest
 }: FieldProps) {
   const errorId = `${name}-error`;
+  const hintId = `${name}-hint`;
+  // Keep the hint available even when an error shows, and describe the field by
+  // both — WCAG 3.3.2 (instructions stay reachable while the user is fixing it).
+  const describedBy =
+    [hint && hintId, error && errorId].filter(Boolean).join(" ") || undefined;
   return (
     <div>
       <FieldLabel htmlFor={name} label={label} required={required} />
@@ -97,12 +102,17 @@ export function Field({
         required={required}
         aria-required={required ? "true" : undefined}
         aria-invalid={error ? "true" : undefined}
-        aria-describedby={error ? errorId : undefined}
+        aria-describedby={describedBy}
         className={controlClass(density, Boolean(error))}
         {...rest}
       />
-      {hint && !error && (
-        <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">{hint}</p>
+      {hint && (
+        <p
+          id={hintId}
+          className="mt-1 text-xs text-zinc-600 dark:text-zinc-400"
+        >
+          {hint}
+        </p>
       )}
       {error && <FieldError id={errorId} message={error} />}
     </div>
@@ -125,6 +135,11 @@ export function FieldTextarea({
   ...rest
 }: FieldTextareaProps) {
   const errorId = `${name}-error`;
+  const hintId = `${name}-hint`;
+  // Keep the hint available even when an error shows, and describe the field by
+  // both — WCAG 3.3.2 (instructions stay reachable while the user is fixing it).
+  const describedBy =
+    [hint && hintId, error && errorId].filter(Boolean).join(" ") || undefined;
   return (
     <div>
       <FieldLabel htmlFor={name} label={label} required={required} />
@@ -135,12 +150,17 @@ export function FieldTextarea({
         required={required}
         aria-required={required ? "true" : undefined}
         aria-invalid={error ? "true" : undefined}
-        aria-describedby={error ? errorId : undefined}
+        aria-describedby={describedBy}
         className={controlClass(density, Boolean(error))}
         {...rest}
       />
-      {hint && !error && (
-        <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">{hint}</p>
+      {hint && (
+        <p
+          id={hintId}
+          className="mt-1 text-xs text-zinc-600 dark:text-zinc-400"
+        >
+          {hint}
+        </p>
       )}
       {error && <FieldError id={errorId} message={error} />}
     </div>
