@@ -1,13 +1,6 @@
 import { NavLink, Outlet } from "react-router";
 import { Eyebrow } from "../_components/eyebrow";
-
-const PACKAGES = [
-  {
-    name: "@evolonix/react-router-next",
-    href: "/packages/react-router-next",
-    blurb: "Next.js-style filesystem routing for React Router 7.",
-  },
-];
+import { PACKAGES } from "./_lib/packages";
 
 export default function PackagesLayout() {
   return (

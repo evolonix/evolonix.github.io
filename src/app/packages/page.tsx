@@ -1,16 +1,6 @@
 import { Link } from "react-router";
 import { useDocumentTitle } from "../_lib/use-document-title";
-
-const PACKAGES = [
-  {
-    name: "@evolonix/react-router-next",
-    href: "/packages/react-router-next",
-    tagline: "Next.js-style filesystem routing for React Router 7",
-    body: "Drop a page.tsx into a folder, get a typed route — including typed params, nested layouts, parallel routes, intercepting routes, loading and error boundaries.",
-    tone: "from-brand-500 via-fuchsia-500 to-accent-500",
-    install: "npm i @evolonix/react-router-next react-router",
-  },
-];
+import { PACKAGES } from "./_lib/packages";
 
 export default function PackagesIndex() {
   useDocumentTitle("Packages");
