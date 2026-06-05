@@ -46,7 +46,18 @@ export function Dialog({
       navigate(closeTo, { preventScrollReset: true });
     };
     const onClick = (e: MouseEvent) => {
-      if (e.target === el) navigate(closeTo, { preventScrollReset: true });
+      // Only the dialog element itself is a click target for the backdrop, but
+      // its own padding (safe-area gutters) reports the same target — so a click
+      // on the card's edges would otherwise close it. Compare against the box to
+      // close only when the click lands outside the dialog, on the real backdrop.
+      if (e.target !== el) return;
+      const r = el.getBoundingClientRect();
+      const outside =
+        e.clientX < r.left ||
+        e.clientX > r.right ||
+        e.clientY < r.top ||
+        e.clientY > r.bottom;
+      if (outside) navigate(closeTo, { preventScrollReset: true });
     };
     el.addEventListener("cancel", onCancel);
     el.addEventListener("click", onClick);

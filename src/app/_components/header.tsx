@@ -35,7 +35,17 @@ export function Header() {
       setOpen(false);
     };
     const onClick = (event: MouseEvent) => {
-      if (event.target === el) setOpen(false);
+      // The dialog's own padding reports the same target as the backdrop, so a
+      // click on the panel's edges would otherwise close it. Close only when the
+      // click lands outside the dialog box, on the real backdrop.
+      if (event.target !== el) return;
+      const r = el.getBoundingClientRect();
+      const outside =
+        event.clientX < r.left ||
+        event.clientX > r.right ||
+        event.clientY < r.top ||
+        event.clientY > r.bottom;
+      if (outside) setOpen(false);
     };
     el.addEventListener("cancel", onCancel);
     el.addEventListener("click", onClick);
