@@ -17,7 +17,7 @@
     "generate:splash": "node scripts/generate-splash.mjs"
   },
   "dependencies": {
-    "@evolonix/react-router-next": "^3.4.0",
+    "@evolonix/react-router-next": "^3.5.0",
     "@tailwindcss/vite": "^4.3.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
