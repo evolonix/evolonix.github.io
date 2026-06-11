@@ -1,3 +1,4 @@
+import { RouteTreeDevtools } from "@evolonix/react-router-next-devtools/vite-client";
 import { Outlet, ScrollRestoration } from "react-router";
 import { Footer } from "./_components/footer";
 import { Header } from "./_components/header";
@@ -20,6 +21,7 @@ export default function RootLayout() {
         <Footer />
       </div>
       <ScrollRestoration />
+      <RouteTreeDevtools />
     </ThemeProvider>
   );
 }
